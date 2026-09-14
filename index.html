@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#030303">
+
 <title>ZEUS SHOP | CS2 SKINS</title>
 
 <style>
@@ -17,13 +18,12 @@
 }
 
 :root{
-    --yellow:#ffd000;
-    --yellow2:#ffea61;
+    --yellow:#ffd400;
+    --yellow-light:#fff06a;
     --black:#030303;
-    --dark:#090909;
-    --card:#0d0d0d;
-    --gray:#777;
-    --red:#ff4545;
+    --card:#0b0b0b;
+    --gray:#666;
+    --red:#ff3f3f;
 }
 
 html{
@@ -33,81 +33,87 @@ html{
 body{
     min-height:100vh;
     overflow-x:hidden;
-
-    color:white;
     background:#030303;
-
+    color:#fff;
     font-family:"Vazirmatn",Arial,sans-serif;
 }
 
-/* =========================
+/* =================================
    BACKGROUND
-========================= */
+================================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-5;
+    z-index:-10;
+    pointer-events:none;
 
     background:
         radial-gradient(
-            circle at 50% 10%,
-            rgba(255,208,0,.12),
+            circle at 0% 0%,
+            rgba(255,212,0,.12),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255,212,0,.09),
             transparent 25%
         ),
         radial-gradient(
-            circle at 0% 50%,
-            rgba(255,208,0,.045),
+            circle at 0% 100%,
+            rgba(255,212,0,.065),
             transparent 25%
         ),
         radial-gradient(
-            circle at 100% 70%,
-            rgba(255,208,0,.035),
-            transparent 25%
+            circle at 100% 100%,
+            rgba(255,212,0,.08),
+            transparent 28%
         );
 }
+
+/* نورهای گوشه‌ای */
 
 body::after{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-4;
+    z-index:-9;
     pointer-events:none;
 
-    opacity:.15;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
+    background:
+        radial-gradient(
+            ellipse at 0% 0%,
+            rgba(255,212,0,.11),
+            transparent 19%
         ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
+        radial-gradient(
+            ellipse at 100% 0%,
+            rgba(255,212,0,.08),
+            transparent 18%
+        ),
+        radial-gradient(
+            ellipse at 0% 100%,
+            rgba(255,212,0,.06),
+            transparent 18%
+        ),
+        radial-gradient(
+            ellipse at 100% 100%,
+            rgba(255,212,0,.08),
+            transparent 20%
         );
-
-    background-size:45px 45px;
-
-    mask-image:linear-gradient(
-        to bottom,
-        black,
-        transparent 85%
-    );
 }
 
-/* =========================
+/* =================================
    HEADER
-========================= */
+================================= */
 
 header{
-    height:76px;
-
     position:sticky;
     top:0;
     z-index:1000;
 
+    height:76px;
     padding:0 6%;
 
     display:flex;
@@ -115,56 +121,62 @@ header{
     justify-content:space-between;
 
     background:rgba(3,3,3,.72);
+    backdrop-filter:blur(18px);
 
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid rgba(255,208,0,.13);
+    border-bottom:1px solid rgba(255,212,0,.10);
 }
 
 .logo{
     color:var(--yellow);
+    text-decoration:none;
 
-    font-size:25px;
+    font-size:23px;
     font-weight:900;
 
     letter-spacing:4px;
 
     text-shadow:
-        0 0 8px rgba(255,208,0,.8),
-        0 0 25px rgba(255,208,0,.25);
+        0 0 8px rgba(255,212,0,.9),
+        0 0 24px rgba(255,212,0,.35);
 
     transition:.3s;
 }
 
 .logo:hover{
-    transform:scale(1.05);
-
     text-shadow:
         0 0 10px var(--yellow),
-        0 0 35px var(--yellow);
+        0 0 30px var(--yellow),
+        0 0 55px rgba(255,212,0,.5);
+
+    transform:scale(1.04);
 }
 
 nav{
     display:flex;
+    align-items:center;
     gap:32px;
 }
 
 nav a{
     position:relative;
 
-    color:#777;
+    color:#666;
+    text-decoration:none;
 
-    font-size:11px;
+    font-size:10px;
     font-weight:700;
 
     transition:.3s;
+}
+
+nav a:hover{
+    color:#fff;
 }
 
 nav a::after{
     content:"";
 
     position:absolute;
-
     right:0;
     bottom:-9px;
 
@@ -178,40 +190,34 @@ nav a::after{
     transition:.3s;
 }
 
-nav a:hover{
-    color:white;
-}
-
 nav a:hover::after{
     width:100%;
 }
 
-/* =========================
+/* =================================
    PROFILE
-========================= */
+================================= */
 
 .profile{
     position:relative;
 }
 
 .profile-button{
-    width:44px;
-    height:44px;
+    width:43px;
+    height:43px;
 
     display:grid;
     place-items:center;
 
+    border:1px solid rgba(255,212,0,.45);
     border-radius:50%;
 
-    background:#080808;
+    background:#070707;
     color:var(--yellow);
 
-    border:1px solid rgba(255,208,0,.6);
+    cursor:pointer;
 
-    box-shadow:
-        0 0 10px rgba(255,208,0,.1);
-
-    font-size:18px;
+    font-size:17px;
 
     transition:.3s;
 }
@@ -222,20 +228,20 @@ nav a:hover::after{
 
     box-shadow:
         0 0 12px var(--yellow),
-        0 0 35px rgba(255,208,0,.35);
+        0 0 30px rgba(255,212,0,.3);
 
-    transform:scale(1.08);
+    transform:scale(1.07);
 }
 
 .profile-panel{
     position:absolute;
 
-    top:60px;
+    top:59px;
     left:0;
 
-    width:320px;
+    width:310px;
 
-    padding:24px;
+    padding:23px;
 
     background:
         linear-gradient(
@@ -244,18 +250,17 @@ nav a:hover::after{
             #050505
         );
 
-    border:1px solid rgba(255,208,0,.35);
-
-    border-radius:18px;
+    border:1px solid rgba(255,212,0,.3);
+    border-radius:17px;
 
     box-shadow:
-        0 30px 90px rgba(0,0,0,.9),
-        0 0 30px rgba(255,208,0,.06);
+        0 25px 80px rgba(0,0,0,.9),
+        0 0 30px rgba(255,212,0,.05);
 
     opacity:0;
     visibility:hidden;
 
-    transform:translateY(-12px) scale(.97);
+    transform:translateY(-10px) scale(.97);
 
     transition:.3s;
 }
@@ -267,40 +272,33 @@ nav a:hover::after{
     transform:translateY(0) scale(1);
 }
 
-.profile-head{
-    margin-bottom:18px;
-}
-
-.profile-head h3{
+.profile-panel h3{
     color:var(--yellow);
-
-    font-size:17px;
-
-    text-shadow:0 0 12px rgba(255,208,0,.3);
+    font-size:16px;
 }
 
-.profile-head p{
-    color:#666;
-
-    font-size:10px;
-
+.profile-panel p{
+    color:#555;
+    font-size:9px;
     margin-top:5px;
+    margin-bottom:16px;
 }
 
 .input{
     width:100%;
 
-    padding:13px;
+    padding:12px 13px;
 
     outline:none;
 
     color:#fff;
     background:#080808;
 
-    border:1px solid #252525;
-    border-radius:9px;
+    border:1px solid #242424;
+    border-radius:8px;
 
-    font-size:11px;
+    font-family:inherit;
+    font-size:10px;
 
     transition:.25s;
 }
@@ -309,7 +307,7 @@ nav a:hover::after{
     border-color:var(--yellow);
 
     box-shadow:
-        0 0 15px rgba(255,208,0,.08);
+        0 0 15px rgba(255,212,0,.08);
 }
 
 .input.error{
@@ -319,11 +317,10 @@ nav a:hover::after{
 .error-message{
     display:none;
 
-    color:var(--red);
-
-    font-size:9px;
-
     margin-top:7px;
+
+    color:var(--red);
+    font-size:9px;
 }
 
 .error-message.show{
@@ -333,39 +330,38 @@ nav a:hover::after{
 .save-profile{
     width:100%;
 
-    margin-top:12px;
-    padding:12px;
+    margin-top:11px;
+    padding:11px;
 
     border:0;
-    border-radius:9px;
+    border-radius:8px;
 
-    background:var(--yellow);
     color:#000;
+    background:var(--yellow);
 
-    font-size:11px;
+    font-family:inherit;
+    font-size:10px;
     font-weight:900;
+
+    cursor:pointer;
 
     transition:.3s;
 }
 
 .save-profile:hover{
-    background:white;
-
-    box-shadow:
-        0 0 20px rgba(255,255,255,.2);
+    background:#fff;
 }
 
 .saved-profile{
-    margin-top:10px;
+    margin-top:9px;
 
     color:#555;
-
-    font-size:9px;
+    font-size:8px;
 }
 
-/* =========================
+/* =================================
    HERO
-========================= */
+================================= */
 
 .hero{
     min-height:calc(100vh - 76px);
@@ -378,29 +374,65 @@ nav a:hover::after{
 
     text-align:center;
 
-    padding:70px 20px 100px;
+    padding:50px 20px 90px;
 
     overflow:hidden;
 }
 
-.hero::before{
-    content:"";
+/* واترمارک ZEUS */
 
+.hero-watermark{
     position:absolute;
 
-    width:600px;
-    height:600px;
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index:0;
+
+    white-space:nowrap;
+
+    color:rgba(255,212,0,.018);
+
+    font-size:
+        clamp(130px,25vw,350px);
+
+    font-weight:900;
+
+    letter-spacing:15px;
+
+    user-select:none;
+    pointer-events:none;
+
+    text-shadow:
+        0 0 40px rgba(255,212,0,.025);
+}
+
+/* نور وسط صفحه */
+
+.hero-glow{
+    position:absolute;
+
+    left:50%;
+    top:48%;
+
+    width:500px;
+    height:500px;
+
+    transform:translate(-50%,-50%);
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,208,0,.1),
-            transparent 65%
+            rgba(255,212,0,.09),
+            transparent 68%
         );
 
-    filter:blur(15px);
+    filter:blur(20px);
 
     pointer-events:none;
 
@@ -409,13 +441,17 @@ nav a:hover::after{
 
 @keyframes heroGlow{
     from{
-        transform:scale(.85);
         opacity:.55;
+        transform:
+            translate(-50%,-50%)
+            scale(.85);
     }
 
     to{
-        transform:scale(1.1);
         opacity:1;
+        transform:
+            translate(-50%,-50%)
+            scale(1.12);
     }
 }
 
@@ -423,13 +459,16 @@ nav a:hover::after{
     position:relative;
     z-index:2;
 
-    animation:heroIn 1s ease;
+    width:100%;
+    max-width:900px;
+
+    animation:heroIn .9s ease both;
 }
 
 @keyframes heroIn{
     from{
         opacity:0;
-        transform:translateY(35px);
+        transform:translateY(25px);
     }
 
     to{
@@ -438,213 +477,171 @@ nav a:hover::after{
     }
 }
 
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+/* نوشته بالای لوگو */
 
-    padding:7px 15px;
+.hero-label{
+    margin-bottom:18px;
 
+    color:#b8b8b8;
+
+    font-size:
+        clamp(9px,1.3vw,12px);
+
+    font-weight:700;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 10px rgba(255,212,0,.08);
+}
+
+.hero-label span{
     color:var(--yellow);
 
-    border:1px solid rgba(255,208,0,.35);
-    border-radius:50px;
-
-    background:rgba(255,208,0,.025);
-
-    box-shadow:
-        0 0 20px rgba(255,208,0,.04);
-
-    font-size:9px;
-    font-weight:800;
-
-    letter-spacing:1px;
+    text-shadow:
+        0 0 10px var(--yellow),
+        0 0 22px rgba(255,212,0,.4);
 }
 
-.badge::before{
-    content:"";
+/* =================================
+   MAIN NEON LOGO
+================================= */
 
-    width:6px;
-    height:6px;
+.neon-title{
+    display:inline-block;
 
-    border-radius:50%;
-
-    background:var(--yellow);
-
-    box-shadow:
-        0 0 7px var(--yellow),
-        0 0 15px var(--yellow);
-
-    animation:blink 1.2s infinite;
-}
-
-@keyframes blink{
-    50%{
-        opacity:.25;
-    }
-}
-
-/* =========================
-   ZEUS SHOP NEON
-========================= */
-
-.neon-logo{
     position:relative;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    color:#fff;
 
-    gap:18px;
+    font-size:
+        clamp(58px,11vw,135px);
 
-    margin:28px 0;
+    line-height:.95;
 
-    padding:20px 30px;
-
-    font-size:clamp(48px,9vw,100px);
     font-weight:900;
 
-    line-height:1;
+    letter-spacing:
+        clamp(2px,1vw,9px);
 
-    letter-spacing:4px;
-
-    color:white;
-
-    /*
-       فقط خود نوشته و حاشیه نئون است.
-       زیر آن هیچ کادر مشکی اضافه وجود ندارد.
-    */
-
-    border:2px solid var(--yellow);
-
-    border-radius:18px;
+    text-transform:uppercase;
 
     background:transparent;
 
-    box-shadow:
-        0 0 6px var(--yellow),
-        0 0 18px rgba(255,208,0,.75),
-        0 0 45px rgba(255,208,0,.3),
-        inset 0 0 18px rgba(255,208,0,.06);
+    text-shadow:
+        0 0 4px #fff,
+        0 0 10px rgba(255,255,255,.9),
+        0 0 22px var(--yellow),
+        0 0 45px var(--yellow),
+        0 0 85px rgba(255,212,0,.6),
+        0 0 120px rgba(255,212,0,.22);
+
+    animation:titlePulse 2.8s ease-in-out infinite alternate;
+}
+
+.neon-title span{
+    color:var(--yellow);
 
     text-shadow:
-        0 0 5px white,
-        0 0 13px var(--yellow),
-        0 0 30px var(--yellow),
-        0 0 55px rgba(255,208,0,.65);
-
-    animation:neonPulse 2s ease-in-out infinite alternate;
+        0 0 4px #fff,
+        0 0 10px var(--yellow),
+        0 0 24px var(--yellow),
+        0 0 48px var(--yellow),
+        0 0 90px rgba(255,212,0,.65);
 }
 
-.neon-logo span{
-    color:white;
+@keyframes titlePulse{
+    from{
+        filter:
+            brightness(.94)
+            drop-shadow(
+                0 0 8px rgba(255,212,0,.15)
+            );
+    }
+
+    to{
+        filter:
+            brightness(1.08)
+            drop-shadow(
+                0 0 20px rgba(255,212,0,.22)
+            );
+    }
 }
 
-.neon-logo b{
-    color:var(--yellow);
-}
+/* خط نئون ظریف زیر لوگو */
 
-.neon-logo::before,
-.neon-logo::after{
-    content:"";
+.neon-line{
+    width:
+        clamp(130px,25vw,260px);
 
-    position:absolute;
+    height:1px;
 
-    width:9px;
-    height:9px;
+    margin:26px auto 25px;
 
-    border-radius:50%;
-
-    background:var(--yellow);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--yellow),
+            transparent
+        );
 
     box-shadow:
-        0 0 7px var(--yellow),
-        0 0 18px var(--yellow),
-        0 0 35px var(--yellow);
+        0 0 8px var(--yellow),
+        0 0 20px rgba(255,212,0,.35);
 
-    animation:dotPulse 1.4s ease-in-out infinite alternate;
+    opacity:.8;
 }
 
-.neon-logo::before{
-    top:-5px;
-    left:18%;
-}
+/* متن توضیح */
 
-.neon-logo::after{
-    bottom:-5px;
-    right:18%;
-}
-
-@keyframes neonPulse{
-
-    from{
-        box-shadow:
-            0 0 5px var(--yellow),
-            0 0 15px rgba(255,208,0,.6),
-            0 0 35px rgba(255,208,0,.25),
-            inset 0 0 10px rgba(255,208,0,.04);
-    }
-
-    to{
-        box-shadow:
-            0 0 10px var(--yellow),
-            0 0 28px rgba(255,208,0,.95),
-            0 0 65px rgba(255,208,0,.5),
-            inset 0 0 20px rgba(255,208,0,.09);
-    }
-}
-
-@keyframes dotPulse{
-
-    from{
-        transform:scale(.7);
-        opacity:.4;
-    }
-
-    to{
-        transform:scale(1.2);
-        opacity:1;
-    }
-}
-
-.hero-subtitle{
-    max-width:570px;
+.hero-description{
+    max-width:560px;
 
     margin:auto;
 
-    color:#777;
+    color:#686868;
 
-    font-size:13px;
-    line-height:2.1;
+    font-size:11px;
+    line-height:2.2;
 }
 
-.hero-subtitle strong{
-    color:#aaa;
+.hero-description strong{
+    color:#999;
 }
+
+/* =================================
+   HERO BUTTONS
+================================= */
 
 .hero-buttons{
     display:flex;
     justify-content:center;
+    align-items:center;
 
     flex-wrap:wrap;
 
-    gap:12px;
+    gap:11px;
 
-    margin-top:30px;
+    margin-top:28px;
 }
 
 .btn{
+    min-width:155px;
+
+    padding:12px 21px;
+
     display:inline-flex;
     align-items:center;
     justify-content:center;
 
-    min-width:155px;
+    border-radius:8px;
 
-    padding:13px 22px;
+    text-decoration:none;
 
-    border-radius:9px;
-
-    font-size:10px;
+    font-size:9px;
     font-weight:900;
 
     transition:.3s;
@@ -652,26 +649,26 @@ nav a:hover::after{
 
 .btn-yellow{
     color:#000;
-
     background:var(--yellow);
 
     box-shadow:
-        0 0 10px rgba(255,208,0,.15);
+        0 0 15px rgba(255,212,0,.12);
 }
 
 .btn-yellow:hover{
-    background:white;
+    color:#000;
+    background:#fff;
 
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 
     box-shadow:
-        0 10px 35px rgba(255,208,0,.18);
+        0 10px 35px rgba(255,212,0,.15);
 }
 
 .btn-dark{
-    color:white;
+    color:#aaa;
 
-    background:#080808;
+    background:transparent;
 
     border:1px solid #292929;
 }
@@ -679,29 +676,26 @@ nav a:hover::after{
 .btn-dark:hover{
     color:var(--yellow);
 
-    border-color:var(--yellow);
-
-    transform:translateY(-4px);
+    border-color:
+        rgba(255,212,0,.6);
 
     box-shadow:
-        0 0 20px rgba(255,208,0,.08);
+        0 0 20px rgba(255,212,0,.07);
+
+    transform:translateY(-3px);
 }
 
-/* =========================
-   SCROLL INDICATOR
-========================= */
+/* =================================
+   SCROLL
+================================= */
 
 .scroll-down{
     position:absolute;
 
-    bottom:28px;
+    bottom:25px;
     left:50%;
 
     transform:translateX(-50%);
-
-    color:#444;
-
-    font-size:9px;
 
     display:flex;
     flex-direction:column;
@@ -709,12 +703,17 @@ nav a:hover::after{
 
     gap:7px;
 
-    animation:scrollFloat 1.8s ease-in-out infinite;
+    color:#383838;
+
+    font-size:7px;
+    letter-spacing:3px;
+
+    animation:scrollMove 1.8s infinite ease-in-out;
 }
 
 .scroll-down span{
     width:1px;
-    height:25px;
+    height:27px;
 
     background:
         linear-gradient(
@@ -722,35 +721,35 @@ nav a:hover::after{
             transparent
         );
 
-    box-shadow:0 0 8px var(--yellow);
+    box-shadow:
+        0 0 8px var(--yellow);
 }
 
-@keyframes scrollFloat{
+@keyframes scrollMove{
     50%{
         transform:
             translateX(-50%)
-            translateY(7px);
+            translateY(6px);
     }
 }
 
-/* =========================
+/* =================================
    SHOP
-========================= */
+================================= */
 
 .shop{
-    padding:80px 6% 110px;
+    padding:90px 6% 100px;
 }
 
-.section-line{
+.section-header{
     display:flex;
     align-items:center;
+    gap:20px;
 
-    gap:15px;
-
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
-.section-line::before{
+.section-header::before{
     content:"";
 
     width:45px;
@@ -759,7 +758,7 @@ nav a:hover::after{
     background:var(--yellow);
 
     box-shadow:
-        0 0 10px var(--yellow);
+        0 0 12px var(--yellow);
 }
 
 .section-title h2{
@@ -771,33 +770,32 @@ nav a:hover::after{
     color:var(--yellow);
 
     text-shadow:
-        0 0 15px rgba(255,208,0,.25);
+        0 0 14px rgba(255,212,0,.3);
 }
 
 .section-title p{
-    color:#555;
-
-    font-size:9px;
-
-    margin-top:5px;
+    color:#4f4f4f;
+    font-size:8px;
+    margin-top:4px;
 }
 
 .search{
-    width:270px;
+    width:260px;
 
     margin-right:auto;
 
-    padding:12px 15px;
-
-    color:white;
-    background:#080808;
-
-    border:1px solid #242424;
-    border-radius:9px;
+    padding:11px 14px;
 
     outline:none;
 
-    font-size:10px;
+    color:#fff;
+    background:#080808;
+
+    border:1px solid #222;
+    border-radius:8px;
+
+    font-family:inherit;
+    font-size:9px;
 
     transition:.3s;
 }
@@ -806,12 +804,12 @@ nav a:hover::after{
     border-color:var(--yellow);
 
     box-shadow:
-        0 0 20px rgba(255,208,0,.07);
+        0 0 15px rgba(255,212,0,.06);
 }
 
-/* =========================
+/* =================================
    PRODUCTS
-========================= */
+================================= */
 
 .products{
     display:grid;
@@ -819,7 +817,7 @@ nav a:hover::after{
     grid-template-columns:
         repeat(5,minmax(0,1fr));
 
-    gap:17px;
+    gap:16px;
 }
 
 .card{
@@ -834,24 +832,23 @@ nav a:hover::after{
             #070707
         );
 
-    border:1px solid #202020;
-
-    border-radius:17px;
+    border:1px solid #1c1c1c;
+    border-radius:16px;
 
     transition:.4s;
 
-    animation:cardShow .7s ease both;
+    animation:cardIn .6s ease both;
 }
 
 .card:hover{
-    transform:translateY(-9px);
+    transform:translateY(-8px);
 
     border-color:
-        rgba(255,208,0,.5);
+        rgba(255,212,0,.4);
 
     box-shadow:
-        0 25px 70px rgba(0,0,0,.7),
-        0 0 30px rgba(255,208,0,.06);
+        0 25px 60px rgba(0,0,0,.7),
+        0 0 28px rgba(255,212,0,.05);
 }
 
 .card::before{
@@ -859,10 +856,10 @@ nav a:hover::after{
 
     position:absolute;
 
-    top:0;
     left:-100%;
+    top:0;
 
-    width:50%;
+    width:45%;
     height:1px;
 
     background:var(--yellow);
@@ -870,17 +867,19 @@ nav a:hover::after{
     box-shadow:
         0 0 15px var(--yellow);
 
-    transition:.7s;
+    transition:.8s;
+
+    z-index:5;
 }
 
 .card:hover::before{
     left:150%;
 }
 
-@keyframes cardShow{
+@keyframes cardIn{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(15px);
     }
 
     to{
@@ -890,7 +889,7 @@ nav a:hover::after{
 }
 
 .weapon-image{
-    height:190px;
+    height:185px;
 
     position:relative;
 
@@ -903,43 +902,20 @@ nav a:hover::after{
     background:
         radial-gradient(
             circle,
-            rgba(255,208,0,.09),
-            transparent 60%
-        );
-}
-
-.weapon-image::after{
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(
-            120deg,
-            transparent 35%,
-            rgba(255,255,255,.035),
+            rgba(255,212,0,.075),
             transparent 65%
         );
-
-    transform:translateX(-100%);
-
-    transition:.8s;
-}
-
-.card:hover .weapon-image::after{
-    transform:translateX(100%);
 }
 
 .weapon-image img{
-    width:95%;
-    height:95%;
+    width:96%;
+    height:96%;
 
     object-fit:contain;
 
     filter:
         drop-shadow(
-            0 22px 17px rgba(0,0,0,.95)
+            0 18px 15px rgba(0,0,0,.95)
         );
 
     transition:.5s;
@@ -947,34 +923,34 @@ nav a:hover::after{
 
 .card:hover .weapon-image img{
     transform:
-        scale(1.09)
+        scale(1.08)
         rotate(-1deg);
 }
 
 .tag{
     position:absolute;
 
-    top:11px;
-    right:11px;
+    top:10px;
+    right:10px;
 
-    z-index:5;
+    z-index:10;
 
-    padding:5px 9px;
+    padding:4px 8px;
+
+    border-radius:5px;
 
     color:#000;
     background:var(--yellow);
-
-    border-radius:6px;
 
     font-size:8px;
     font-weight:900;
 
     box-shadow:
-        0 0 12px rgba(255,208,0,.25);
+        0 0 10px rgba(255,212,0,.2);
 }
 
 .card-body{
-    padding:16px;
+    padding:15px;
 }
 
 .card-body h3{
@@ -983,161 +959,135 @@ nav a:hover::after{
     white-space:nowrap;
     text-overflow:ellipsis;
 
-    font-size:12px;
+    font-size:11px;
 
     margin-bottom:5px;
 }
 
 .rarity{
-    color:#555;
+    color:#4d4d4d;
 
-    font-size:9px;
+    font-size:8px;
 
-    margin-bottom:16px;
+    margin-bottom:14px;
 }
 
 .card-bottom{
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:8px;
 }
 
 .price{
     color:var(--yellow);
 
-    font-size:10px;
+    font-size:9px;
     font-weight:900;
 
     text-shadow:
-        0 0 10px rgba(255,208,0,.2);
+        0 0 9px rgba(255,212,0,.18);
 }
 
 .buy{
     padding:8px 12px;
 
     border:0;
-    border-radius:7px;
+    border-radius:6px;
 
     color:#000;
     background:var(--yellow);
 
-    font-size:9px;
+    font-family:inherit;
+
+    font-size:8px;
     font-weight:900;
+
+    cursor:pointer;
 
     transition:.25s;
 }
 
 .buy:hover{
-    background:white;
+    background:#fff;
 
     transform:scale(1.06);
-
-    box-shadow:
-        0 0 15px rgba(255,208,0,.15);
 }
 
-/* =========================
+/* =================================
    FEATURES
-========================= */
+================================= */
 
 .features{
     padding:0 6% 100px;
 
     display:grid;
-
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:17px;
+    gap:16px;
 }
 
 .feature{
     position:relative;
 
-    padding:25px;
+    padding:24px;
+
+    overflow:hidden;
 
     background:#080808;
 
-    border:1px solid #1d1d1d;
-
+    border:1px solid #191919;
     border-radius:15px;
 
     transition:.35s;
-
-    overflow:hidden;
 }
 
 .feature:hover{
-    border-color:
-        rgba(255,208,0,.35);
+    transform:translateY(-5px);
 
-    transform:translateY(-6px);
+    border-color:
+        rgba(255,212,0,.3);
 
     box-shadow:
         0 20px 50px rgba(0,0,0,.5);
 }
 
-.feature::after{
-    content:"";
-
-    position:absolute;
-
-    top:-60px;
-    right:-60px;
-
-    width:120px;
-    height:120px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,208,0,.12),
-            transparent 70%
-        );
-}
-
 .feature-icon{
-    width:43px;
-    height:43px;
+    width:42px;
+    height:42px;
 
     display:grid;
     place-items:center;
 
-    margin-bottom:14px;
+    margin-bottom:13px;
 
-    border-radius:11px;
+    border-radius:10px;
 
     color:var(--yellow);
 
-    border:1px solid rgba(255,208,0,.2);
+    border:1px solid rgba(255,212,0,.18);
 
-    background:rgba(255,208,0,.04);
+    background:rgba(255,212,0,.035);
 
-    box-shadow:
-        0 0 18px rgba(255,208,0,.04);
+    font-size:17px;
 }
 
 .feature h3{
-    font-size:13px;
-
-    margin-bottom:7px;
+    font-size:12px;
+    margin-bottom:6px;
 }
 
 .feature p{
-    color:#555;
+    color:#4d4d4d;
 
-    font-size:9px;
-
+    font-size:8px;
     line-height:2;
 }
 
-/* =========================
+/* =================================
    MODAL
-========================= */
+================================= */
 
 .modal{
     position:fixed;
@@ -1151,7 +1101,7 @@ nav a:hover::after{
 
     padding:20px;
 
-    background:rgba(0,0,0,.9);
+    background:rgba(0,0,0,.91);
 
     backdrop-filter:blur(12px);
 
@@ -1170,21 +1120,20 @@ nav a:hover::after{
     width:100%;
     max-width:510px;
 
-    padding:24px;
+    padding:23px;
 
     background:#090909;
 
-    border:1px solid rgba(255,208,0,.35);
-
-    border-radius:18px;
+    border:1px solid rgba(255,212,0,.3);
+    border-radius:17px;
 
     box-shadow:
         0 30px 100px rgba(0,0,0,.95),
-        0 0 35px rgba(255,208,0,.05);
+        0 0 35px rgba(255,212,0,.05);
 
     transform:
-        translateY(25px)
-        scale(.96);
+        translateY(20px)
+        scale(.97);
 
     transition:.3s;
 }
@@ -1200,27 +1149,29 @@ nav a:hover::after{
     align-items:center;
     justify-content:space-between;
 
-    margin-bottom:18px;
+    margin-bottom:17px;
 }
 
 .modal-head h2{
     color:var(--yellow);
 
-    font-size:19px;
+    font-size:18px;
 
     text-shadow:
-        0 0 13px rgba(255,208,0,.3);
+        0 0 12px rgba(255,212,0,.3);
 }
 
 .close{
-    width:34px;
-    height:34px;
+    width:33px;
+    height:33px;
 
     border:0;
     border-radius:50%;
 
     background:#151515;
-    color:#aaa;
+    color:#999;
+
+    cursor:pointer;
 
     font-size:18px;
 
@@ -1236,15 +1187,14 @@ nav a:hover::after{
     display:flex;
     align-items:center;
 
-    gap:13px;
+    gap:12px;
 
-    padding:11px;
+    padding:10px;
 
     background:#0f0f0f;
 
-    border:1px solid #1c1c1c;
-
-    border-radius:11px;
+    border:1px solid #1d1d1d;
+    border-radius:10px;
 }
 
 .selected-product img{
@@ -1255,20 +1205,19 @@ nav a:hover::after{
 }
 
 .selected-product strong{
-    font-size:12px;
+    font-size:11px;
 }
 
 .option-title{
-    color:#666;
+    color:#555;
 
-    font-size:9px;
+    font-size:8px;
 
     margin:15px 0 8px;
 }
 
 .options{
     display:grid;
-
     grid-template-columns:
         repeat(3,1fr);
 
@@ -1276,16 +1225,19 @@ nav a:hover::after{
 }
 
 .option{
-    padding:10px 5px;
+    padding:9px 4px;
 
-    color:#777;
-    background:#111;
-
-    border:1px solid #252525;
-
+    border:1px solid #232323;
     border-radius:7px;
 
+    color:#666;
+    background:#111;
+
+    font-family:inherit;
+
     font-size:8px;
+
+    cursor:pointer;
 
     transition:.25s;
 }
@@ -1294,12 +1246,11 @@ nav a:hover::after{
     color:var(--yellow);
 
     border-color:
-        rgba(255,208,0,.5);
+        rgba(255,212,0,.4);
 }
 
 .option.active{
     color:#000;
-
     background:var(--yellow);
 
     border-color:var(--yellow);
@@ -1307,21 +1258,17 @@ nav a:hover::after{
     font-weight:900;
 
     box-shadow:
-        0 0 12px rgba(255,208,0,.1);
-}
-
-.order-form{
-    margin-top:18px;
+        0 0 13px rgba(255,212,0,.08);
 }
 
 .form-error{
     display:none;
 
+    margin:12px 0 8px;
+
     color:var(--red);
 
     font-size:9px;
-
-    margin-bottom:8px;
 }
 
 .form-error.show{
@@ -1331,54 +1278,58 @@ nav a:hover::after{
 .order-btn{
     width:100%;
 
+    margin-top:17px;
     padding:13px;
 
     border:0;
-    border-radius:9px;
+    border-radius:8px;
 
     color:#000;
     background:var(--yellow);
 
-    font-size:10px;
+    font-family:inherit;
+    font-size:9px;
     font-weight:900;
+
+    cursor:pointer;
 
     transition:.3s;
 }
 
 .order-btn:hover{
-    background:white;
+    background:#fff;
 
     transform:translateY(-2px);
 
     box-shadow:
-        0 10px 30px rgba(255,208,0,.12);
+        0 10px 30px rgba(255,212,0,.12);
 }
 
-/* =========================
+/* =================================
    FOOTER
-========================= */
+================================= */
 
 footer{
-    padding:28px 6%;
+    padding:27px 6%;
 
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 
-    border-top:1px solid #171717;
+    border-top:1px solid #151515;
 
-    color:#444;
+    color:#3f3f3f;
 
-    font-size:9px;
+    font-size:8px;
 }
 
 footer strong{
     color:var(--yellow);
 }
 
-/* =========================
+/* =================================
    TOAST
-========================= */
+================================= */
 
 .toast{
     position:fixed;
@@ -1386,25 +1337,25 @@ footer strong{
     z-index:9999;
 
     left:50%;
-    bottom:22px;
+    bottom:20px;
 
-    padding:11px 18px;
+    padding:10px 17px;
+
+    border-radius:8px;
 
     color:#000;
     background:var(--yellow);
 
-    border-radius:8px;
-
-    font-size:9px;
+    font-size:8px;
     font-weight:900;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.5);
 
     transform:
         translate(-50%,100px);
 
     transition:.4s;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.5);
 }
 
 .toast.show{
@@ -1412,9 +1363,9 @@ footer strong{
         translate(-50%,0);
 }
 
-/* =========================
+/* =================================
    RESPONSIVE
-========================= */
+================================= */
 
 @media(max-width:1200px){
 
@@ -1451,8 +1402,7 @@ footer strong{
     .profile-panel{
         position:fixed;
 
-        top:88px;
-
+        top:87px;
         left:15px;
         right:15px;
 
@@ -1460,23 +1410,30 @@ footer strong{
     }
 
     .hero{
-        min-height:calc(100vh - 76px);
+        min-height:
+            calc(100vh - 76px);
 
-        padding-top:50px;
+        padding-top:40px;
     }
 
-    .neon-logo{
-        gap:9px;
-
-        padding:16px 20px;
-
-        border-radius:14px;
-
-        letter-spacing:2px;
+    .hero-label{
+        letter-spacing:3px;
     }
 
-    .hero-subtitle{
-        font-size:11px;
+    .hero-watermark{
+        letter-spacing:5px;
+    }
+
+    .hero-description{
+        font-size:9px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:190px;
     }
 
     .shop{
@@ -1484,7 +1441,7 @@ footer strong{
         padding-right:20px;
     }
 
-    .section-line{
+    .section-header{
         flex-wrap:wrap;
     }
 
@@ -1507,8 +1464,7 @@ footer strong{
         padding-right:20px;
 
         flex-direction:column;
-
-        gap:10px;
+        gap:9px;
 
         text-align:center;
     }
@@ -1522,13 +1478,20 @@ footer strong{
             repeat(2,1fr);
     }
 
+    .neon-title{
+        font-size:52px;
+    }
+
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- HEADER -->
+<!-- ===============================
+     HEADER
+================================ -->
 
 <header>
 
@@ -1547,22 +1510,25 @@ footer strong{
 <button
     class="profile-button"
     onclick="toggleProfile()"
+    aria-label="پروفایل"
 >
     👤
 </button>
 
 <div class="profile-panel">
 
-<div class="profile-head">
-    <h3>پروفایل کاربر</h3>
-    <p>آیدی تلگرام خودت را وارد کن.</p>
-</div>
+<h3>پروفایل کاربر</h3>
+
+<p>
+    فقط آیدی تلگرام خودت را وارد کن.
+</p>
 
 <input
     id="userTelegram"
     class="input"
     type="text"
     maxlength="33"
+    autocomplete="off"
     placeholder="@username"
 >
 
@@ -1586,31 +1552,49 @@ footer strong{
 </div>
 
 </div>
+
 </div>
 
 </header>
 
 
-<!-- HERO -->
+<!-- ===============================
+     HERO
+================================ -->
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home"
+>
+
+<div class="hero-watermark">
+    ZEUS
+</div>
+
+<div class="hero-glow"></div>
 
 <div class="hero-content">
 
-<div class="badge">
-    ZEUS SHOP • CS2 SKINS
+<div class="hero-label">
+    <span>ZEUS SHOP</span>
+    &nbsp;•&nbsp;
+    CS2 SKINS
 </div>
 
-<div class="neon-logo">
-    <span>ZEUS</span>
-    <b>SHOP</b>
+<div class="neon-title">
+    ZEUS <span>SHOP</span>
 </div>
 
-<p class="hero-subtitle">
+<div class="neon-line"></div>
+
+<p class="hero-description">
+
     فروشگاه اختصاصی اسکین‌های
     <strong>Counter-Strike 2</strong>
     <br>
-    انتخاب کن، مشخصات اسکین رو بزن و سفارشت رو مستقیم در تلگرام ارسال کن.
+
+    اسکین موردنظرت رو انتخاب کن و سفارشت رو سریع ثبت کن.
+
 </p>
 
 <div class="hero-buttons">
@@ -1625,7 +1609,7 @@ footer strong{
 <a
     href="https://t.me/Zeus_admin0"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
     class="btn btn-dark"
 >
     ارتباط با مدیریت
@@ -1636,18 +1620,26 @@ footer strong{
 </div>
 
 <div class="scroll-down">
-    <span></span>
-    SCROLL
+
+<span></span>
+
+SCROLL
+
 </div>
 
 </section>
 
 
-<!-- SHOP -->
+<!-- ===============================
+     SHOP
+================================ -->
 
-<section class="shop" id="shop">
+<section
+    class="shop"
+    id="shop"
+>
 
-<div class="section-line">
+<div class="section-header">
 
 <div class="section-title">
 
@@ -1684,7 +1676,9 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">⚡</span>
+<span class="tag">
+    ⚡
+</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/MP5-SD%20%7C%20Liquidation%20(Minimal%20Wear).webp"
@@ -1697,7 +1691,9 @@ footer strong{
 
 <div class="card-body">
 
-<h3>MP5-SD | Liquidation</h3>
+<h3>
+    MP5-SD | Liquidation
+</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1717,7 +1713,9 @@ footer strong{
 </button>
 
 </div>
+
 </div>
+
 </div>
 
 
@@ -1730,7 +1728,9 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">⚡</span>
+<span class="tag">
+    ⚡
+</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/AWP%20%7C%20Capillary%20(Minimal%20Wear).webp"
@@ -1743,7 +1743,9 @@ footer strong{
 
 <div class="card-body">
 
-<h3>AWP | Capillary</h3>
+<h3>
+    AWP | Capillary
+</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1763,7 +1765,9 @@ footer strong{
 </button>
 
 </div>
+
 </div>
+
 </div>
 
 
@@ -1776,7 +1780,9 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">⚡</span>
+<span class="tag">
+    ⚡
+</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/Glock-18%20%7C%20Clear%20Polymer%20(Minimal%20Wear).webp"
@@ -1789,7 +1795,9 @@ footer strong{
 
 <div class="card-body">
 
-<h3>GLOCK-18 | Clear Polymer</h3>
+<h3>
+    GLOCK-18 | Clear Polymer
+</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1809,7 +1817,9 @@ footer strong{
 </button>
 
 </div>
+
 </div>
+
 </div>
 
 
@@ -1822,7 +1832,9 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">⚡</span>
+<span class="tag">
+    ⚡
+</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/USP-S%20%7C%20Flashback%20(Minimal%20Wear).webp"
@@ -1835,7 +1847,9 @@ footer strong{
 
 <div class="card-body">
 
-<h3>USP-S | Flashback</h3>
+<h3>
+    USP-S | Flashback
+</h3>
 
 <div class="rarity">
     Restricted
@@ -1855,7 +1869,9 @@ footer strong{
 </button>
 
 </div>
+
 </div>
+
 </div>
 
 
@@ -1868,7 +1884,9 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">⚡</span>
+<span class="tag">
+    ⚡
+</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/AK-47%20%7C%20Elite%20Build%20(Minimal%20Wear).webp"
@@ -1881,7 +1899,9 @@ footer strong{
 
 <div class="card-body">
 
-<h3>AK-47 | Elite Build</h3>
+<h3>
+    AK-47 | Elite Build
+</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1901,16 +1921,25 @@ footer strong{
 </button>
 
 </div>
-</div>
+
 </div>
 
 </div>
+
+
+</div>
+
 </section>
 
 
-<!-- FEATURES -->
+<!-- ===============================
+     FEATURES
+================================ -->
 
-<section class="features" id="features">
+<section
+    class="features"
+    id="features"
+>
 
 <div class="feature">
 
@@ -1923,7 +1952,7 @@ footer strong{
 </h3>
 
 <p>
-    اسکین را انتخاب کن و مشخصات موردنظرت را مشخص کن.
+    اسکین موردنظرت را انتخاب کن و مشخصات آن را تعیین کن.
 </p>
 
 </div>
@@ -1940,7 +1969,7 @@ footer strong{
 </h3>
 
 <p>
-    سفارش آماده‌شده مستقیماً از طریق تلگرام برای مدیریت ارسال می‌شود.
+    بعد از انتخاب محصول، اطلاعات سفارش برای ادامه در تلگرام آماده می‌شود.
 </p>
 
 </div>
@@ -1957,7 +1986,7 @@ footer strong{
 </h3>
 
 <p>
-    برای پیگیری سفارش می‌توانی مستقیماً با مدیریت ZEUS SHOP در ارتباط باشی.
+    برای پیگیری سفارش می‌توانی مستقیماً با مدیریت ZEUS SHOP در تماس باشی.
 </p>
 
 </div>
@@ -1965,12 +1994,15 @@ footer strong{
 </section>
 
 
-<!-- FOOTER -->
+<!-- ===============================
+     FOOTER
+================================ -->
 
 <footer>
 
 <div>
-    © 2026 <strong>ZEUS SHOP</strong>
+    © 2026
+    <strong>ZEUS SHOP</strong>
 </div>
 
 <div>
@@ -1981,7 +2013,9 @@ footer strong{
 </footer>
 
 
-<!-- ORDER MODAL -->
+<!-- ===============================
+     ORDER MODAL
+================================ -->
 
 <div
     class="modal"
@@ -2023,7 +2057,7 @@ footer strong{
 <div
     style="
         color:#555;
-        font-size:9px;
+        font-size:8px;
         margin-top:5px;
     "
 >
@@ -2123,11 +2157,9 @@ footer strong{
 </div>
 
 
-<div class="order-form">
-
 <div
-    class="form-error"
     id="orderError"
+    class="form-error"
 ></div>
 
 <button
@@ -2139,7 +2171,6 @@ footer strong{
 
 </div>
 
-</div>
 </div>
 
 
@@ -2155,13 +2186,19 @@ footer strong{
 
 <script>
 
+/* =================================
+   VARIABLES
+================================= */
+
 let selectedProduct = "";
 let selectedWear = "Factory New";
 let selectedType = "Normal";
 let selectedImage = "";
 
 
-/* PROFILE */
+/* =================================
+   PROFILE
+================================= */
 
 function toggleProfile(){
 
@@ -2171,15 +2208,14 @@ function toggleProfile(){
 
 }
 
-
 document.addEventListener(
     "click",
-    function(e){
+    function(event){
 
         const profile =
             document.getElementById("profile");
 
-        if(!profile.contains(e.target)){
+        if(!profile.contains(event.target)){
 
             profile.classList.remove("open");
 
@@ -2189,7 +2225,9 @@ document.addEventListener(
 );
 
 
-/* TELEGRAM */
+/* =================================
+   TELEGRAM VALIDATION
+================================= */
 
 function validTelegram(value){
 
@@ -2208,7 +2246,6 @@ function validTelegram(value){
 
 }
 
-
 function normalizeTelegram(value){
 
     let username =
@@ -2226,7 +2263,9 @@ function normalizeTelegram(value){
 }
 
 
-/* SAVE PROFILE */
+/* =================================
+   SAVE PROFILE
+================================= */
 
 function saveProfile(){
 
@@ -2280,8 +2319,7 @@ function saveProfile(){
         telegram;
 
     saved.textContent =
-        "✓ ذخیره شد: " +
-        telegram;
+        "✓ ذخیره شد: " + telegram;
 
     showToast(
         "آیدی تلگرام ذخیره شد."
@@ -2290,7 +2328,9 @@ function saveProfile(){
 }
 
 
-/* LOAD PROFILE */
+/* =================================
+   LOAD PROFILE
+================================= */
 
 function loadProfile(){
 
@@ -2313,8 +2353,7 @@ function loadProfile(){
                 "savedText"
             )
             .textContent =
-            "✓ ذخیره شد: " +
-            saved;
+            "✓ ذخیره شد: " + saved;
 
     }
 
@@ -2323,7 +2362,9 @@ function loadProfile(){
 loadProfile();
 
 
-/* ORDER */
+/* =================================
+   OPEN ORDER
+================================= */
 
 function openOrder(button){
 
@@ -2336,14 +2377,14 @@ function openOrder(button){
             .textContent
             .trim();
 
-    const img =
+    const image =
         card.querySelector(
             ".weapon-image img"
         );
 
     selectedImage =
-        img.currentSrc ||
-        img.src;
+        image.currentSrc ||
+        image.src;
 
     document
         .getElementById(
@@ -2370,11 +2411,13 @@ function openOrder(button){
             "#wearOptions .option"
         )
         .forEach(
-            (el,i)=>{
-                el.classList.toggle(
+            (element,index)=>{
+
+                element.classList.toggle(
                     "active",
-                    i === 0
+                    index === 0
                 );
+
             }
         );
 
@@ -2383,13 +2426,21 @@ function openOrder(button){
             "#typeOptions .option"
         )
         .forEach(
-            (el,i)=>{
-                el.classList.toggle(
+            (element,index)=>{
+
+                element.classList.toggle(
                     "active",
-                    i === 0
+                    index === 0
                 );
+
             }
         );
+
+    document
+        .getElementById(
+            "orderError"
+        )
+        .classList.remove("show");
 
     document
         .getElementById(
@@ -2399,6 +2450,10 @@ function openOrder(button){
 
 }
 
+
+/* =================================
+   CLOSE ORDER
+================================= */
 
 function closeOrder(){
 
@@ -2410,11 +2465,10 @@ function closeOrder(){
 
 }
 
-
-function outsideClose(e){
+function outsideClose(event){
 
     if(
-        e.target ===
+        event.target ===
         document.getElementById(
             "orderModal"
         )
@@ -2427,7 +2481,9 @@ function outsideClose(e){
 }
 
 
-/* OPTIONS */
+/* =================================
+   SELECT WEAR
+================================= */
 
 function selectWear(button){
 
@@ -2436,10 +2492,12 @@ function selectWear(button){
             "#wearOptions .option"
         )
         .forEach(
-            el=>{
-                el.classList.remove(
+            element=>{
+
+                element.classList.remove(
                     "active"
                 );
+
             }
         );
 
@@ -2451,6 +2509,10 @@ function selectWear(button){
 }
 
 
+/* =================================
+   SELECT TYPE
+================================= */
+
 function selectType(button){
 
     document
@@ -2458,10 +2520,12 @@ function selectType(button){
             "#typeOptions .option"
         )
         .forEach(
-            el=>{
-                el.classList.remove(
+            element=>{
+
+                element.classList.remove(
                     "active"
                 );
+
             }
         );
 
@@ -2473,7 +2537,9 @@ function selectType(button){
 }
 
 
-/* SEND TO TELEGRAM */
+/* =================================
+   SEND ORDER TO TELEGRAM
+================================= */
 
 function sendOrder(){
 
@@ -2539,14 +2605,16 @@ ${telegram}
         "https://t.me/Zeus_admin0?text=" +
         encodeURIComponent(message);
 
-    const win =
+
+    const telegramWindow =
         window.open(
             url,
             "_blank",
-            "noopener"
+            "noopener,noreferrer"
         );
 
-    if(!win){
+
+    if(!telegramWindow){
 
         window.location.href =
             url;
@@ -2556,7 +2624,9 @@ ${telegram}
 }
 
 
-/* SEARCH */
+/* =================================
+   SEARCH
+================================= */
 
 function searchProducts(){
 
@@ -2587,7 +2657,9 @@ function searchProducts(){
 }
 
 
-/* TOAST */
+/* =================================
+   TOAST
+================================= */
 
 function showToast(text){
 
@@ -2616,20 +2688,20 @@ function showToast(text){
 }
 
 
-/* ESC */
+/* =================================
+   ESC KEY
+================================= */
 
 document.addEventListener(
     "keydown",
-    e=>{
+    function(event){
 
-        if(e.key === "Escape"){
+        if(event.key === "Escape"){
 
             closeOrder();
 
             document
-                .getElementById(
-                    "profile"
-                )
+                .getElementById("profile")
                 .classList.remove(
                     "open"
                 );
