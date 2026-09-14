@@ -4,8 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#030303">
-
 <title>ZEUS SHOP | CS2 SKINS</title>
 
 <style>
@@ -19,11 +17,11 @@
 
 :root{
     --yellow:#ffd400;
-    --yellow-light:#fff06a;
+    --yellow-soft:#ffe45c;
     --black:#030303;
     --card:#0b0b0b;
-    --gray:#666;
-    --red:#ff3f3f;
+    --border:#202020;
+    --red:#ff4141;
 }
 
 html{
@@ -38,9 +36,9 @@ body{
     font-family:"Vazirmatn",Arial,sans-serif;
 }
 
-/* =================================
+/* =========================
    BACKGROUND
-================================= */
+========================= */
 
 body::before{
     content:"";
@@ -52,27 +50,25 @@ body::before{
     background:
         radial-gradient(
             circle at 0% 0%,
-            rgba(255,212,0,.12),
-            transparent 27%
+            rgba(255,212,0,.10),
+            transparent 25%
         ),
         radial-gradient(
             circle at 100% 0%,
-            rgba(255,212,0,.09),
-            transparent 25%
+            rgba(255,212,0,.07),
+            transparent 23%
         ),
         radial-gradient(
             circle at 0% 100%,
-            rgba(255,212,0,.065),
-            transparent 25%
+            rgba(255,212,0,.055),
+            transparent 24%
         ),
         radial-gradient(
             circle at 100% 100%,
-            rgba(255,212,0,.08),
-            transparent 28%
+            rgba(255,212,0,.07),
+            transparent 25%
         );
 }
-
-/* نورهای گوشه‌ای */
 
 body::after{
     content:"";
@@ -83,30 +79,30 @@ body::after{
 
     background:
         radial-gradient(
-            ellipse at 0% 0%,
-            rgba(255,212,0,.11),
-            transparent 19%
-        ),
-        radial-gradient(
-            ellipse at 100% 0%,
+            ellipse at 0 0,
             rgba(255,212,0,.08),
             transparent 18%
         ),
         radial-gradient(
-            ellipse at 0% 100%,
+            ellipse at 100% 0,
             rgba(255,212,0,.06),
+            transparent 17%
+        ),
+        radial-gradient(
+            ellipse at 0 100%,
+            rgba(255,212,0,.05),
             transparent 18%
         ),
         radial-gradient(
             ellipse at 100% 100%,
-            rgba(255,212,0,.08),
-            transparent 20%
+            rgba(255,212,0,.06),
+            transparent 19%
         );
 }
 
-/* =================================
+/* =========================
    HEADER
-================================= */
+========================= */
 
 header{
     position:sticky;
@@ -120,10 +116,10 @@ header{
     align-items:center;
     justify-content:space-between;
 
-    background:rgba(3,3,3,.72);
+    background:rgba(3,3,3,.76);
     backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,212,0,.10);
+    border-bottom:1px solid rgba(255,212,0,.09);
 }
 
 .logo{
@@ -136,19 +132,16 @@ header{
     letter-spacing:4px;
 
     text-shadow:
-        0 0 8px rgba(255,212,0,.9),
-        0 0 24px rgba(255,212,0,.35);
+        0 0 7px rgba(255,212,0,.55),
+        0 0 20px rgba(255,212,0,.18);
 
     transition:.3s;
 }
 
 .logo:hover{
     text-shadow:
-        0 0 10px var(--yellow),
-        0 0 30px var(--yellow),
-        0 0 55px rgba(255,212,0,.5);
-
-    transform:scale(1.04);
+        0 0 8px rgba(255,212,0,.75),
+        0 0 25px rgba(255,212,0,.28);
 }
 
 nav{
@@ -185,7 +178,7 @@ nav a::after{
 
     background:var(--yellow);
 
-    box-shadow:0 0 10px var(--yellow);
+    box-shadow:0 0 7px rgba(255,212,0,.55);
 
     transition:.3s;
 }
@@ -194,22 +187,22 @@ nav a:hover::after{
     width:100%;
 }
 
-/* =================================
+/* =========================
    PROFILE
-================================= */
+========================= */
 
 .profile{
     position:relative;
 }
 
 .profile-button{
-    width:43px;
-    height:43px;
+    width:44px;
+    height:44px;
 
     display:grid;
     place-items:center;
 
-    border:1px solid rgba(255,212,0,.45);
+    border:1px solid rgba(255,212,0,.35);
     border-radius:50%;
 
     background:#070707;
@@ -227,10 +220,10 @@ nav a:hover::after{
     background:var(--yellow);
 
     box-shadow:
-        0 0 12px var(--yellow),
-        0 0 30px rgba(255,212,0,.3);
+        0 0 12px rgba(255,212,0,.35),
+        0 0 25px rgba(255,212,0,.12);
 
-    transform:scale(1.07);
+    transform:scale(1.05);
 }
 
 .profile-panel{
@@ -250,12 +243,12 @@ nav a:hover::after{
             #050505
         );
 
-    border:1px solid rgba(255,212,0,.3);
+    border:1px solid rgba(255,212,0,.25);
     border-radius:17px;
 
     box-shadow:
         0 25px 80px rgba(0,0,0,.9),
-        0 0 30px rgba(255,212,0,.05);
+        0 0 25px rgba(255,212,0,.04);
 
     opacity:0;
     visibility:hidden;
@@ -304,10 +297,10 @@ nav a:hover::after{
 }
 
 .input:focus{
-    border-color:var(--yellow);
+    border-color:rgba(255,212,0,.6);
 
     box-shadow:
-        0 0 15px rgba(255,212,0,.08);
+        0 0 13px rgba(255,212,0,.06);
 }
 
 .input.error{
@@ -331,7 +324,7 @@ nav a:hover::after{
     width:100%;
 
     margin-top:11px;
-    padding:11px;
+    padding:12px;
 
     border:0;
     border-radius:8px;
@@ -359,9 +352,9 @@ nav a:hover::after{
     font-size:8px;
 }
 
-/* =================================
+/* =========================
    HERO
-================================= */
+========================= */
 
 .hero{
     min-height:calc(100vh - 76px);
@@ -379,22 +372,19 @@ nav a:hover::after{
     overflow:hidden;
 }
 
-/* واترمارک ZEUS */
-
 .hero-watermark{
     position:absolute;
 
     left:50%;
     top:50%;
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
     z-index:0;
 
     white-space:nowrap;
 
-    color:rgba(255,212,0,.018);
+    color:rgba(255,212,0,.015);
 
     font-size:
         clamp(130px,25vw,350px);
@@ -405,12 +395,7 @@ nav a:hover::after{
 
     user-select:none;
     pointer-events:none;
-
-    text-shadow:
-        0 0 40px rgba(255,212,0,.025);
 }
-
-/* نور وسط صفحه */
 
 .hero-glow{
     position:absolute;
@@ -428,15 +413,15 @@ nav a:hover::after{
     background:
         radial-gradient(
             circle,
-            rgba(255,212,0,.09),
+            rgba(255,212,0,.065),
             transparent 68%
         );
 
-    filter:blur(20px);
+    filter:blur(25px);
 
     pointer-events:none;
 
-    animation:heroGlow 5s ease-in-out infinite alternate;
+    animation:heroGlow 6s ease-in-out infinite alternate;
 }
 
 @keyframes heroGlow{
@@ -444,14 +429,14 @@ nav a:hover::after{
         opacity:.55;
         transform:
             translate(-50%,-50%)
-            scale(.85);
+            scale(.88);
     }
 
     to{
-        opacity:1;
+        opacity:.9;
         transform:
             translate(-50%,-50%)
-            scale(1.12);
+            scale(1.08);
     }
 }
 
@@ -468,7 +453,7 @@ nav a:hover::after{
 @keyframes heroIn{
     from{
         opacity:0;
-        transform:translateY(25px);
+        transform:translateY(22px);
     }
 
     to{
@@ -477,41 +462,36 @@ nav a:hover::after{
     }
 }
 
-/* نوشته بالای لوگو */
+/* نوشته بالای ZEUS SHOP */
 
 .hero-label{
     margin-bottom:18px;
 
-    color:#b8b8b8;
+    color:#858585;
 
     font-size:
-        clamp(9px,1.3vw,12px);
+        clamp(10px,1.3vw,13px);
 
     font-weight:700;
 
-    letter-spacing:5px;
+    letter-spacing:4px;
 
     text-transform:uppercase;
-
-    text-shadow:
-        0 0 10px rgba(255,212,0,.08);
 }
 
 .hero-label span{
-    color:var(--yellow);
+    color:#d4b500;
 
     text-shadow:
-        0 0 10px var(--yellow),
-        0 0 22px rgba(255,212,0,.4);
+        0 0 8px rgba(255,212,0,.25);
 }
 
-/* =================================
-   MAIN NEON LOGO
-================================= */
+/* =========================
+   SOFT NEON TITLE
+========================= */
 
 .neon-title{
     display:inline-block;
-
     position:relative;
 
     color:#fff;
@@ -528,53 +508,51 @@ nav a:hover::after{
 
     text-transform:uppercase;
 
-    background:transparent;
-
+    /* نئون نرم */
     text-shadow:
-        0 0 4px #fff,
-        0 0 10px rgba(255,255,255,.9),
-        0 0 22px var(--yellow),
-        0 0 45px var(--yellow),
-        0 0 85px rgba(255,212,0,.6),
-        0 0 120px rgba(255,212,0,.22);
+        0 0 3px rgba(255,255,255,.75),
+        0 0 8px rgba(255,212,0,.50),
+        0 0 18px rgba(255,212,0,.30),
+        0 0 38px rgba(255,212,0,.14);
 
-    animation:titlePulse 2.8s ease-in-out infinite alternate;
+    animation:softNeon 4s ease-in-out infinite alternate;
 }
 
 .neon-title span{
-    color:var(--yellow);
+    color:#ffd91a;
 
     text-shadow:
-        0 0 4px #fff,
-        0 0 10px var(--yellow),
-        0 0 24px var(--yellow),
-        0 0 48px var(--yellow),
-        0 0 90px rgba(255,212,0,.65);
+        0 0 3px rgba(255,255,255,.55),
+        0 0 8px rgba(255,212,0,.55),
+        0 0 18px rgba(255,212,0,.30),
+        0 0 38px rgba(255,212,0,.13);
 }
 
-@keyframes titlePulse{
+@keyframes softNeon{
     from{
+        opacity:.94;
+
         filter:
-            brightness(.94)
+            brightness(.97)
             drop-shadow(
-                0 0 8px rgba(255,212,0,.15)
+                0 0 5px rgba(255,212,0,.06)
             );
     }
 
     to{
+        opacity:1;
+
         filter:
-            brightness(1.08)
+            brightness(1.03)
             drop-shadow(
-                0 0 20px rgba(255,212,0,.22)
+                0 0 11px rgba(255,212,0,.10)
             );
     }
 }
 
-/* خط نئون ظریف زیر لوگو */
-
 .neon-line{
     width:
-        clamp(130px,25vw,260px);
+        clamp(140px,25vw,270px);
 
     height:1px;
 
@@ -584,37 +562,34 @@ nav a:hover::after{
         linear-gradient(
             90deg,
             transparent,
-            var(--yellow),
+            rgba(255,212,0,.75),
             transparent
         );
 
     box-shadow:
-        0 0 8px var(--yellow),
-        0 0 20px rgba(255,212,0,.35);
+        0 0 7px rgba(255,212,0,.35);
 
-    opacity:.8;
+    opacity:.65;
 }
-
-/* متن توضیح */
 
 .hero-description{
     max-width:560px;
 
     margin:auto;
 
-    color:#686868;
+    color:#666;
 
     font-size:11px;
     line-height:2.2;
 }
 
 .hero-description strong{
-    color:#999;
+    color:#929292;
 }
 
-/* =================================
-   HERO BUTTONS
-================================= */
+/* =========================
+   BUTTONS
+========================= */
 
 .hero-buttons{
     display:flex;
@@ -623,71 +598,75 @@ nav a:hover::after{
 
     flex-wrap:wrap;
 
-    gap:11px;
+    gap:14px;
 
-    margin-top:28px;
+    margin-top:32px;
 }
 
 .btn{
-    min-width:155px;
+    min-width:195px;
+    min-height:52px;
 
-    padding:12px 21px;
+    padding:15px 25px;
 
     display:inline-flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:8px;
+    border-radius:9px;
 
     text-decoration:none;
 
-    font-size:9px;
+    font-size:11px;
     font-weight:900;
 
-    transition:.3s;
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
 }
 
 .btn-yellow{
-    color:#000;
+    color:#080808;
     background:var(--yellow);
 
     box-shadow:
-        0 0 15px rgba(255,212,0,.12);
+        0 0 12px rgba(255,212,0,.09);
 }
 
 .btn-yellow:hover{
     color:#000;
-    background:#fff;
+    background:#ffe45c;
 
     transform:translateY(-3px);
 
     box-shadow:
-        0 10px 35px rgba(255,212,0,.15);
+        0 8px 28px rgba(255,212,0,.15);
 }
 
 .btn-dark{
-    color:#aaa;
+    color:#c5c5c5;
 
-    background:transparent;
+    background:rgba(8,8,8,.65);
 
-    border:1px solid #292929;
+    border:1px solid #303030;
 }
 
 .btn-dark:hover{
     color:var(--yellow);
 
     border-color:
-        rgba(255,212,0,.6);
+        rgba(255,212,0,.5);
+
+    background:#0d0d0d;
 
     box-shadow:
-        0 0 20px rgba(255,212,0,.07);
+        0 0 20px rgba(255,212,0,.06);
 
     transform:translateY(-3px);
 }
-
-/* =================================
-   SCROLL
-================================= */
 
 .scroll-down{
     position:absolute;
@@ -722,7 +701,7 @@ nav a:hover::after{
         );
 
     box-shadow:
-        0 0 8px var(--yellow);
+        0 0 6px rgba(255,212,0,.4);
 }
 
 @keyframes scrollMove{
@@ -733,9 +712,9 @@ nav a:hover::after{
     }
 }
 
-/* =================================
+/* =========================
    SHOP
-================================= */
+========================= */
 
 .shop{
     padding:90px 6% 100px;
@@ -758,7 +737,7 @@ nav a:hover::after{
     background:var(--yellow);
 
     box-shadow:
-        0 0 12px var(--yellow);
+        0 0 9px rgba(255,212,0,.45);
 }
 
 .section-title h2{
@@ -770,7 +749,7 @@ nav a:hover::after{
     color:var(--yellow);
 
     text-shadow:
-        0 0 14px rgba(255,212,0,.3);
+        0 0 10px rgba(255,212,0,.2);
 }
 
 .section-title p{
@@ -784,7 +763,7 @@ nav a:hover::after{
 
     margin-right:auto;
 
-    padding:11px 14px;
+    padding:12px 14px;
 
     outline:none;
 
@@ -801,15 +780,16 @@ nav a:hover::after{
 }
 
 .search:focus{
-    border-color:var(--yellow);
+    border-color:
+        rgba(255,212,0,.5);
 
     box-shadow:
-        0 0 15px rgba(255,212,0,.06);
+        0 0 13px rgba(255,212,0,.05);
 }
 
-/* =================================
+/* =========================
    PRODUCTS
-================================= */
+========================= */
 
 .products{
     display:grid;
@@ -822,7 +802,6 @@ nav a:hover::after{
 
 .card{
     position:relative;
-
     overflow:hidden;
 
     background:
@@ -844,11 +823,11 @@ nav a:hover::after{
     transform:translateY(-8px);
 
     border-color:
-        rgba(255,212,0,.4);
+        rgba(255,212,0,.35);
 
     box-shadow:
         0 25px 60px rgba(0,0,0,.7),
-        0 0 28px rgba(255,212,0,.05);
+        0 0 24px rgba(255,212,0,.04);
 }
 
 .card::before{
@@ -865,7 +844,7 @@ nav a:hover::after{
     background:var(--yellow);
 
     box-shadow:
-        0 0 15px var(--yellow);
+        0 0 10px rgba(255,212,0,.6);
 
     transition:.8s;
 
@@ -902,7 +881,7 @@ nav a:hover::after{
     background:
         radial-gradient(
             circle,
-            rgba(255,212,0,.075),
+            rgba(255,212,0,.055),
             transparent 65%
         );
 }
@@ -944,9 +923,6 @@ nav a:hover::after{
 
     font-size:8px;
     font-weight:900;
-
-    box-shadow:
-        0 0 10px rgba(255,212,0,.2);
 }
 
 .card-body{
@@ -986,7 +962,7 @@ nav a:hover::after{
     font-weight:900;
 
     text-shadow:
-        0 0 9px rgba(255,212,0,.18);
+        0 0 7px rgba(255,212,0,.16);
 }
 
 .buy{
@@ -1011,17 +987,18 @@ nav a:hover::after{
 .buy:hover{
     background:#fff;
 
-    transform:scale(1.06);
+    transform:scale(1.05);
 }
 
-/* =================================
+/* =========================
    FEATURES
-================================= */
+========================= */
 
 .features{
     padding:0 6% 100px;
 
     display:grid;
+
     grid-template-columns:
         repeat(3,1fr);
 
@@ -1029,11 +1006,7 @@ nav a:hover::after{
 }
 
 .feature{
-    position:relative;
-
     padding:24px;
-
-    overflow:hidden;
 
     background:#080808;
 
@@ -1047,7 +1020,7 @@ nav a:hover::after{
     transform:translateY(-5px);
 
     border-color:
-        rgba(255,212,0,.3);
+        rgba(255,212,0,.25);
 
     box-shadow:
         0 20px 50px rgba(0,0,0,.5);
@@ -1066,9 +1039,9 @@ nav a:hover::after{
 
     color:var(--yellow);
 
-    border:1px solid rgba(255,212,0,.18);
+    border:1px solid rgba(255,212,0,.15);
 
-    background:rgba(255,212,0,.035);
+    background:rgba(255,212,0,.025);
 
     font-size:17px;
 }
@@ -1085,9 +1058,9 @@ nav a:hover::after{
     line-height:2;
 }
 
-/* =================================
+/* =========================
    MODAL
-================================= */
+========================= */
 
 .modal{
     position:fixed;
@@ -1124,12 +1097,12 @@ nav a:hover::after{
 
     background:#090909;
 
-    border:1px solid rgba(255,212,0,.3);
+    border:1px solid rgba(255,212,0,.25);
     border-radius:17px;
 
     box-shadow:
         0 30px 100px rgba(0,0,0,.95),
-        0 0 35px rgba(255,212,0,.05);
+        0 0 30px rgba(255,212,0,.04);
 
     transform:
         translateY(20px)
@@ -1158,7 +1131,7 @@ nav a:hover::after{
     font-size:18px;
 
     text-shadow:
-        0 0 12px rgba(255,212,0,.3);
+        0 0 9px rgba(255,212,0,.22);
 }
 
 .close{
@@ -1218,6 +1191,7 @@ nav a:hover::after{
 
 .options{
     display:grid;
+
     grid-template-columns:
         repeat(3,1fr);
 
@@ -1246,7 +1220,7 @@ nav a:hover::after{
     color:var(--yellow);
 
     border-color:
-        rgba(255,212,0,.4);
+        rgba(255,212,0,.35);
 }
 
 .option.active{
@@ -1258,7 +1232,7 @@ nav a:hover::after{
     font-weight:900;
 
     box-shadow:
-        0 0 13px rgba(255,212,0,.08);
+        0 0 10px rgba(255,212,0,.07);
 }
 
 .form-error{
@@ -1279,7 +1253,7 @@ nav a:hover::after{
     width:100%;
 
     margin-top:17px;
-    padding:13px;
+    padding:14px;
 
     border:0;
     border-radius:8px;
@@ -1288,7 +1262,8 @@ nav a:hover::after{
     background:var(--yellow);
 
     font-family:inherit;
-    font-size:9px;
+
+    font-size:10px;
     font-weight:900;
 
     cursor:pointer;
@@ -1302,12 +1277,12 @@ nav a:hover::after{
     transform:translateY(-2px);
 
     box-shadow:
-        0 10px 30px rgba(255,212,0,.12);
+        0 8px 25px rgba(255,212,0,.10);
 }
 
-/* =================================
+/* =========================
    FOOTER
-================================= */
+========================= */
 
 footer{
     padding:27px 6%;
@@ -1327,9 +1302,9 @@ footer strong{
     color:var(--yellow);
 }
 
-/* =================================
+/* =========================
    TOAST
-================================= */
+========================= */
 
 .toast{
     position:fixed;
@@ -1363,9 +1338,9 @@ footer strong{
         translate(-50%,0);
 }
 
-/* =================================
+/* =========================
    RESPONSIVE
-================================= */
+========================= */
 
 @media(max-width:1200px){
 
@@ -1417,7 +1392,8 @@ footer strong{
     }
 
     .hero-label{
-        letter-spacing:3px;
+        letter-spacing:2px;
+        font-size:9px;
     }
 
     .hero-watermark{
@@ -1430,10 +1406,13 @@ footer strong{
 
     .hero-buttons{
         flex-direction:column;
+        gap:11px;
     }
 
     .btn{
-        width:190px;
+        width:215px;
+        min-height:53px;
+        font-size:10px;
     }
 
     .shop{
@@ -1486,12 +1465,11 @@ footer strong{
 </style>
 </head>
 
-
 <body>
 
-<!-- ===============================
+<!-- =========================
      HEADER
-================================ -->
+========================= -->
 
 <header>
 
@@ -1552,15 +1530,14 @@ footer strong{
 </div>
 
 </div>
-
 </div>
 
 </header>
 
 
-<!-- ===============================
+<!-- =========================
      HERO
-================================ -->
+========================= -->
 
 <section
     class="hero"
@@ -1588,13 +1565,10 @@ footer strong{
 <div class="neon-line"></div>
 
 <p class="hero-description">
-
     فروشگاه اختصاصی اسکین‌های
     <strong>Counter-Strike 2</strong>
     <br>
-
     اسکین موردنظرت رو انتخاب کن و سفارشت رو سریع ثبت کن.
-
 </p>
 
 <div class="hero-buttons">
@@ -1620,19 +1594,16 @@ footer strong{
 </div>
 
 <div class="scroll-down">
-
-<span></span>
-
-SCROLL
-
+    <span></span>
+    SCROLL
 </div>
 
 </section>
 
 
-<!-- ===============================
+<!-- =========================
      SHOP
-================================ -->
+========================= -->
 
 <section
     class="shop"
@@ -1676,9 +1647,7 @@ SCROLL
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/MP5-SD%20%7C%20Liquidation%20(Minimal%20Wear).webp"
@@ -1713,9 +1682,7 @@ SCROLL
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1728,9 +1695,7 @@ SCROLL
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/AWP%20%7C%20Capillary%20(Minimal%20Wear).webp"
@@ -1765,9 +1730,7 @@ SCROLL
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1780,9 +1743,7 @@ SCROLL
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/Glock-18%20%7C%20Clear%20Polymer%20(Minimal%20Wear).webp"
@@ -1817,9 +1778,7 @@ SCROLL
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1832,9 +1791,7 @@ SCROLL
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/USP-S%20%7C%20Flashback%20(Minimal%20Wear).webp"
@@ -1869,9 +1826,7 @@ SCROLL
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1884,9 +1839,7 @@ SCROLL
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/AK-47%20%7C%20Elite%20Build%20(Minimal%20Wear).webp"
@@ -1921,20 +1874,16 @@ SCROLL
 </button>
 
 </div>
-
+</div>
 </div>
 
 </div>
-
-
-</div>
-
 </section>
 
 
-<!-- ===============================
+<!-- =========================
      FEATURES
-================================ -->
+========================= -->
 
 <section
     class="features"
@@ -1943,9 +1892,7 @@ SCROLL
 
 <div class="feature">
 
-<div class="feature-icon">
-    ⚡
-</div>
+<div class="feature-icon">⚡</div>
 
 <h3>
     سفارش سریع
@@ -1960,9 +1907,7 @@ SCROLL
 
 <div class="feature">
 
-<div class="feature-icon">
-    🔒
-</div>
+<div class="feature-icon">🔒</div>
 
 <h3>
     ارتباط مستقیم
@@ -1977,16 +1922,14 @@ SCROLL
 
 <div class="feature">
 
-<div class="feature-icon">
-    💬
-</div>
+<div class="feature-icon">💬</div>
 
 <h3>
     پشتیبانی
 </h3>
 
 <p>
-    برای پیگیری سفارش می‌توانی مستقیماً با مدیریت ZEUS SHOP در تماس باشی.
+    برای پیگیری سفارش مستقیماً با مدیریت ZEUS SHOP در تماس باش.
 </p>
 
 </div>
@@ -1994,9 +1937,9 @@ SCROLL
 </section>
 
 
-<!-- ===============================
+<!-- =========================
      FOOTER
-================================ -->
+========================= -->
 
 <footer>
 
@@ -2013,9 +1956,9 @@ SCROLL
 </footer>
 
 
-<!-- ===============================
+<!-- =========================
      ORDER MODAL
-================================ -->
+========================= -->
 
 <div
     class="modal"
@@ -2170,11 +2113,8 @@ SCROLL
 </button>
 
 </div>
-
 </div>
 
-
-<!-- TOAST -->
 
 <div
     class="toast"
@@ -2186,9 +2126,9 @@ SCROLL
 
 <script>
 
-/* =================================
+/* =========================
    VARIABLES
-================================= */
+========================= */
 
 let selectedProduct = "";
 let selectedWear = "Factory New";
@@ -2196,9 +2136,9 @@ let selectedType = "Normal";
 let selectedImage = "";
 
 
-/* =================================
+/* =========================
    PROFILE
-================================= */
+========================= */
 
 function toggleProfile(){
 
@@ -2225,9 +2165,9 @@ document.addEventListener(
 );
 
 
-/* =================================
+/* =========================
    TELEGRAM VALIDATION
-================================= */
+========================= */
 
 function validTelegram(value){
 
@@ -2263,9 +2203,9 @@ function normalizeTelegram(value){
 }
 
 
-/* =================================
+/* =========================
    SAVE PROFILE
-================================= */
+========================= */
 
 function saveProfile(){
 
@@ -2328,9 +2268,9 @@ function saveProfile(){
 }
 
 
-/* =================================
+/* =========================
    LOAD PROFILE
-================================= */
+========================= */
 
 function loadProfile(){
 
@@ -2362,9 +2302,9 @@ function loadProfile(){
 loadProfile();
 
 
-/* =================================
+/* =========================
    OPEN ORDER
-================================= */
+========================= */
 
 function openOrder(button){
 
@@ -2451,9 +2391,9 @@ function openOrder(button){
 }
 
 
-/* =================================
+/* =========================
    CLOSE ORDER
-================================= */
+========================= */
 
 function closeOrder(){
 
@@ -2481,9 +2421,9 @@ function outsideClose(event){
 }
 
 
-/* =================================
+/* =========================
    SELECT WEAR
-================================= */
+========================= */
 
 function selectWear(button){
 
@@ -2509,9 +2449,9 @@ function selectWear(button){
 }
 
 
-/* =================================
+/* =========================
    SELECT TYPE
-================================= */
+========================= */
 
 function selectType(button){
 
@@ -2537,9 +2477,9 @@ function selectType(button){
 }
 
 
-/* =================================
-   SEND ORDER TO TELEGRAM
-================================= */
+/* =========================
+   SEND ORDER
+========================= */
 
 function sendOrder(){
 
@@ -2600,11 +2540,9 @@ ${telegram}
 
 سلام، برای خرید این اسکین پیام دادم.`;
 
-
     const url =
         "https://t.me/Zeus_admin0?text=" +
         encodeURIComponent(message);
-
 
     const telegramWindow =
         window.open(
@@ -2613,20 +2551,18 @@ ${telegram}
             "noopener,noreferrer"
         );
 
-
     if(!telegramWindow){
 
-        window.location.href =
-            url;
+        window.location.href = url;
 
     }
 
 }
 
 
-/* =================================
+/* =========================
    SEARCH
-================================= */
+========================= */
 
 function searchProducts(){
 
@@ -2657,9 +2593,9 @@ function searchProducts(){
 }
 
 
-/* =================================
+/* =========================
    TOAST
-================================= */
+========================= */
 
 function showToast(text){
 
@@ -2678,9 +2614,7 @@ function showToast(text){
     window.zeusToast =
         setTimeout(
             ()=>{
-                toast.classList.remove(
-                    "show"
-                );
+                toast.classList.remove("show");
             },
             2500
         );
@@ -2688,9 +2622,9 @@ function showToast(text){
 }
 
 
-/* =================================
-   ESC KEY
-================================= */
+/* =========================
+   ESC
+========================= */
 
 document.addEventListener(
     "keydown",
@@ -2702,9 +2636,7 @@ document.addEventListener(
 
             document
                 .getElementById("profile")
-                .classList.remove(
-                    "open"
-                );
+                .classList.remove("open");
 
         }
 
