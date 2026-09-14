@@ -3,7 +3,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050505">
 <title>ZEUS SHOP | CS2 SKINS</title>
 
@@ -11,16 +11,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 :root{
     --yellow:#ffd000;
-    --black:#050505;
-    --card:#111;
-    --border:#292929;
+    --yellow2:#ffea61;
+    --black:#030303;
+    --dark:#090909;
+    --card:#0d0d0d;
     --gray:#777;
     --red:#ff4545;
 }
@@ -31,24 +32,69 @@ html{
 
 body{
     min-height:100vh;
-    background:
-        radial-gradient(circle at 85% 0%,rgba(255,208,0,.13),transparent 28%),
-        radial-gradient(circle at 5% 90%,rgba(255,208,0,.06),transparent 25%),
-        var(--black);
-    color:#fff;
+    overflow-x:hidden;
+
+    color:white;
+    background:#030303;
+
     font-family:"Vazirmatn",Arial,sans-serif;
 }
 
-button,input{
-    font-family:inherit;
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-5;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(255,208,0,.12),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 0% 50%,
+            rgba(255,208,0,.045),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 100% 70%,
+            rgba(255,208,0,.035),
+            transparent 25%
+        );
 }
 
-button{
-    cursor:pointer;
-}
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    pointer-events:none;
 
-a{
-    text-decoration:none;
+    opacity:.15;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:45px 45px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+    );
 }
 
 /* =========================
@@ -56,49 +102,88 @@ a{
 ========================= */
 
 header{
-    height:78px;
-    padding:0 6%;
+    height:76px;
+
     position:sticky;
     top:0;
     z-index:1000;
+
+    padding:0 6%;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    background:rgba(5,5,5,.92);
-    backdrop-filter:blur(18px);
+    background:rgba(3,3,3,.72);
 
-    border-bottom:1px solid rgba(255,208,0,.12);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,208,0,.13);
 }
 
 .logo{
     color:var(--yellow);
-    font-size:28px;
+
+    font-size:25px;
     font-weight:900;
+
     letter-spacing:4px;
+
+    text-shadow:
+        0 0 8px rgba(255,208,0,.8),
+        0 0 25px rgba(255,208,0,.25);
+
     transition:.3s;
 }
 
 .logo:hover{
-    transform:scale(1.06);
-    text-shadow:0 0 25px rgba(255,208,0,.4);
+    transform:scale(1.05);
+
+    text-shadow:
+        0 0 10px var(--yellow),
+        0 0 35px var(--yellow);
 }
 
 nav{
     display:flex;
-    gap:30px;
+    gap:32px;
 }
 
 nav a{
+    position:relative;
+
     color:#777;
-    font-size:12px;
-    font-weight:800;
-    transition:.25s;
+
+    font-size:11px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+nav a::after{
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    bottom:-9px;
+
+    width:0;
+    height:2px;
+
+    background:var(--yellow);
+
+    box-shadow:0 0 10px var(--yellow);
+
+    transition:.3s;
 }
 
 nav a:hover{
-    color:var(--yellow);
+    color:white;
+}
+
+nav a:hover::after{
+    width:100%;
 }
 
 /* =========================
@@ -110,95 +195,121 @@ nav a:hover{
 }
 
 .profile-button{
-    width:48px;
-    height:48px;
+    width:44px;
+    height:44px;
+
+    display:grid;
+    place-items:center;
 
     border-radius:50%;
-    border:2px solid rgba(255,208,0,.7);
 
-    background:#111;
+    background:#080808;
     color:var(--yellow);
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    border:1px solid rgba(255,208,0,.6);
 
-    font-size:20px;
+    box-shadow:
+        0 0 10px rgba(255,208,0,.1);
+
+    font-size:18px;
+
     transition:.3s;
 }
 
 .profile-button:hover{
-    background:var(--yellow);
     color:#000;
-    transform:scale(1.06);
+    background:var(--yellow);
+
+    box-shadow:
+        0 0 12px var(--yellow),
+        0 0 35px rgba(255,208,0,.35);
+
+    transform:scale(1.08);
 }
 
 .profile-panel{
     position:absolute;
-    top:62px;
+
+    top:60px;
     left:0;
 
-    width:330px;
+    width:320px;
+
     padding:24px;
 
-    background:linear-gradient(145deg,#181818,#090909);
-    border:1px solid rgba(255,208,0,.3);
-    border-radius:20px;
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #050505
+        );
 
-    box-shadow:0 30px 90px rgba(0,0,0,.85);
+    border:1px solid rgba(255,208,0,.35);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.9),
+        0 0 30px rgba(255,208,0,.06);
 
     opacity:0;
     visibility:hidden;
 
     transform:translateY(-12px) scale(.97);
+
     transition:.3s;
 }
 
 .profile.open .profile-panel{
     opacity:1;
     visibility:visible;
+
     transform:translateY(0) scale(1);
 }
 
 .profile-head{
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .profile-head h3{
     color:var(--yellow);
-    font-size:18px;
-    margin-bottom:6px;
+
+    font-size:17px;
+
+    text-shadow:0 0 12px rgba(255,208,0,.3);
 }
 
 .profile-head p{
     color:#666;
+
     font-size:10px;
-    line-height:1.9;
+
+    margin-top:5px;
 }
 
 .input{
     width:100%;
+
     padding:13px;
 
-    background:#171717;
-    color:#fff;
-
-    border:1px solid #292929;
-    border-radius:10px;
-
     outline:none;
-    font-size:12px;
+
+    color:#fff;
+    background:#080808;
+
+    border:1px solid #252525;
+    border-radius:9px;
+
+    font-size:11px;
 
     transition:.25s;
 }
 
-.input::placeholder{
-    color:#555;
-}
-
 .input:focus{
     border-color:var(--yellow);
-    box-shadow:0 0 18px rgba(255,208,0,.07);
+
+    box-shadow:
+        0 0 15px rgba(255,208,0,.08);
 }
 
 .input.error{
@@ -207,10 +318,12 @@ nav a:hover{
 
 .error-message{
     display:none;
+
     color:var(--red);
-    font-size:10px;
+
+    font-size:9px;
+
     margin-top:7px;
-    margin-bottom:9px;
 }
 
 .error-message.show{
@@ -219,30 +332,35 @@ nav a:hover{
 
 .save-profile{
     width:100%;
+
     margin-top:12px;
-    padding:13px;
+    padding:12px;
 
     border:0;
-    border-radius:10px;
+    border-radius:9px;
 
     background:var(--yellow);
     color:#000;
 
-    font-size:12px;
+    font-size:11px;
     font-weight:900;
 
     transition:.3s;
 }
 
 .save-profile:hover{
-    background:#fff;
-    transform:translateY(-2px);
+    background:white;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.2);
 }
 
 .saved-profile{
-    margin-top:12px;
-    color:#666;
-    font-size:10px;
+    margin-top:10px;
+
+    color:#555;
+
+    font-size:9px;
 }
 
 /* =========================
@@ -250,25 +368,70 @@ nav a:hover{
 ========================= */
 
 .hero{
-    min-height:530px;
-    padding:75px 20px;
+    min-height:calc(100vh - 76px);
+
+    position:relative;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
     text-align:center;
+
+    padding:70px 20px 100px;
+
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,208,0,.1),
+            transparent 65%
+        );
+
+    filter:blur(15px);
+
+    pointer-events:none;
+
+    animation:heroGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow{
+    from{
+        transform:scale(.85);
+        opacity:.55;
+    }
+
+    to{
+        transform:scale(1.1);
+        opacity:1;
+    }
 }
 
 .hero-content{
-    animation:heroIn .8s ease;
+    position:relative;
+    z-index:2;
+
+    animation:heroIn 1s ease;
 }
 
 @keyframes heroIn{
     from{
         opacity:0;
-        transform:translateY(25px);
+        transform:translateY(35px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
@@ -276,77 +439,109 @@ nav a:hover{
 }
 
 .badge{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
 
-    padding:8px 16px;
+    padding:7px 15px;
 
-    border:1px solid rgba(255,208,0,.3);
-    border-radius:30px;
-
-    background:rgba(255,208,0,.055);
     color:var(--yellow);
 
-    font-size:10px;
+    border:1px solid rgba(255,208,0,.35);
+    border-radius:50px;
+
+    background:rgba(255,208,0,.025);
+
+    box-shadow:
+        0 0 20px rgba(255,208,0,.04);
+
+    font-size:9px;
     font-weight:800;
 
-    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+.badge::before{
+    content:"";
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--yellow);
+
+    box-shadow:
+        0 0 7px var(--yellow),
+        0 0 15px var(--yellow);
+
+    animation:blink 1.2s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.25;
+    }
 }
 
 /* =========================
-   NEON ZEUS SHOP
+   ZEUS SHOP NEON
 ========================= */
 
 .neon-logo{
     position:relative;
 
-    display:inline-flex;
+    display:flex;
     align-items:center;
     justify-content:center;
 
     gap:18px;
 
-    padding:22px 35px;
-    margin:8px 0 28px;
+    margin:28px 0;
 
-    font-size:clamp(52px,9vw,105px);
+    padding:20px 30px;
+
+    font-size:clamp(48px,9vw,100px);
     font-weight:900;
 
     line-height:1;
+
     letter-spacing:4px;
 
-    color:#fff;
+    color:white;
+
+    /*
+       فقط خود نوشته و حاشیه نئون است.
+       زیر آن هیچ کادر مشکی اضافه وجود ندارد.
+    */
 
     border:2px solid var(--yellow);
-    border-radius:22px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,208,0,.12),
-            rgba(0,0,0,.8)
-        );
+    border-radius:18px;
+
+    background:transparent;
 
     box-shadow:
-        0 0 8px #ffd000,
-        0 0 20px rgba(255,208,0,.75),
-        0 0 45px rgba(255,208,0,.4),
-        inset 0 0 25px rgba(255,208,0,.08);
+        0 0 6px var(--yellow),
+        0 0 18px rgba(255,208,0,.75),
+        0 0 45px rgba(255,208,0,.3),
+        inset 0 0 18px rgba(255,208,0,.06);
 
     text-shadow:
-        0 0 5px #fff,
-        0 0 15px #ffd000,
-        0 0 35px rgba(255,208,0,.8);
+        0 0 5px white,
+        0 0 13px var(--yellow),
+        0 0 30px var(--yellow),
+        0 0 55px rgba(255,208,0,.65);
 
     animation:neonPulse 2s ease-in-out infinite alternate;
 }
 
 .neon-logo span{
-    color:#fff;
+    color:white;
 }
 
 .neon-logo b{
     color:var(--yellow);
-    font-weight:900;
 }
 
 .neon-logo::before,
@@ -355,28 +550,28 @@ nav a:hover{
 
     position:absolute;
 
-    width:13px;
-    height:13px;
-
-    background:var(--yellow);
+    width:9px;
+    height:9px;
 
     border-radius:50%;
 
-    box-shadow:
-        0 0 8px #ffd000,
-        0 0 20px #ffd000,
-        0 0 40px rgba(255,208,0,.8);
+    background:var(--yellow);
 
-    animation:neonDot 1.5s ease-in-out infinite alternate;
+    box-shadow:
+        0 0 7px var(--yellow),
+        0 0 18px var(--yellow),
+        0 0 35px var(--yellow);
+
+    animation:dotPulse 1.4s ease-in-out infinite alternate;
 }
 
 .neon-logo::before{
-    top:-7px;
+    top:-5px;
     left:18%;
 }
 
 .neon-logo::after{
-    bottom:-7px;
+    bottom:-5px;
     right:18%;
 }
 
@@ -384,82 +579,158 @@ nav a:hover{
 
     from{
         box-shadow:
-            0 0 7px #ffd000,
-            0 0 18px rgba(255,208,0,.65),
-            0 0 35px rgba(255,208,0,.3),
-            inset 0 0 20px rgba(255,208,0,.05);
+            0 0 5px var(--yellow),
+            0 0 15px rgba(255,208,0,.6),
+            0 0 35px rgba(255,208,0,.25),
+            inset 0 0 10px rgba(255,208,0,.04);
     }
 
     to{
         box-shadow:
-            0 0 12px #ffd000,
-            0 0 35px rgba(255,208,0,.9),
-            0 0 75px rgba(255,208,0,.55),
-            inset 0 0 35px rgba(255,208,0,.12);
+            0 0 10px var(--yellow),
+            0 0 28px rgba(255,208,0,.95),
+            0 0 65px rgba(255,208,0,.5),
+            inset 0 0 20px rgba(255,208,0,.09);
     }
-
 }
 
-@keyframes neonDot{
+@keyframes dotPulse{
 
     from{
-        opacity:.45;
-        transform:scale(.8);
+        transform:scale(.7);
+        opacity:.4;
     }
 
     to{
-        opacity:1;
         transform:scale(1.2);
+        opacity:1;
     }
-
 }
 
-.hero p{
-    color:#888;
-    font-size:14px;
-    line-height:2;
+.hero-subtitle{
+    max-width:570px;
+
+    margin:auto;
+
+    color:#777;
+
+    font-size:13px;
+    line-height:2.1;
+}
+
+.hero-subtitle strong{
+    color:#aaa;
 }
 
 .hero-buttons{
     display:flex;
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:12px;
+
     margin-top:30px;
 }
 
 .btn{
-    padding:13px 24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
 
-    border-radius:10px;
+    min-width:155px;
 
-    font-size:11px;
+    padding:13px 22px;
+
+    border-radius:9px;
+
+    font-size:10px;
     font-weight:900;
 
     transition:.3s;
 }
 
 .btn-yellow{
-    background:var(--yellow);
     color:#000;
+
+    background:var(--yellow);
+
+    box-shadow:
+        0 0 10px rgba(255,208,0,.15);
 }
 
 .btn-yellow:hover{
-    background:#fff;
+    background:white;
+
     transform:translateY(-4px);
+
+    box-shadow:
+        0 10px 35px rgba(255,208,0,.18);
 }
 
 .btn-dark{
-    background:#151515;
-    color:#fff;
+    color:white;
+
+    background:#080808;
 
     border:1px solid #292929;
 }
 
 .btn-dark:hover{
     color:var(--yellow);
+
     border-color:var(--yellow);
+
     transform:translateY(-4px);
+
+    box-shadow:
+        0 0 20px rgba(255,208,0,.08);
+}
+
+/* =========================
+   SCROLL INDICATOR
+========================= */
+
+.scroll-down{
+    position:absolute;
+
+    bottom:28px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#444;
+
+    font-size:9px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:7px;
+
+    animation:scrollFloat 1.8s ease-in-out infinite;
+}
+
+.scroll-down span{
+    width:1px;
+    height:25px;
+
+    background:
+        linear-gradient(
+            var(--yellow),
+            transparent
+        );
+
+    box-shadow:0 0 8px var(--yellow);
+}
+
+@keyframes scrollFloat{
+    50%{
+        transform:
+            translateX(-50%)
+            translateY(7px);
+    }
 }
 
 /* =========================
@@ -467,51 +738,75 @@ nav a:hover{
 ========================= */
 
 .shop{
-    padding:40px 6% 100px;
+    padding:80px 6% 110px;
 }
 
-.shop-head{
+.section-line{
     display:flex;
-    align-items:end;
-    justify-content:space-between;
+    align-items:center;
 
-    gap:20px;
-    margin-bottom:30px;
+    gap:15px;
+
+    margin-bottom:35px;
 }
 
-.shop-title h2{
-    font-size:29px;
+.section-line::before{
+    content:"";
+
+    width:45px;
+    height:2px;
+
+    background:var(--yellow);
+
+    box-shadow:
+        0 0 10px var(--yellow);
+}
+
+.section-title h2{
+    font-size:27px;
     font-weight:900;
 }
 
-.shop-title h2 span{
+.section-title h2 span{
     color:var(--yellow);
+
+    text-shadow:
+        0 0 15px rgba(255,208,0,.25);
 }
 
-.shop-title p{
-    color:#666;
-    font-size:10px;
+.section-title p{
+    color:#555;
+
+    font-size:9px;
+
     margin-top:5px;
 }
 
 .search{
-    width:280px;
+    width:270px;
 
-    padding:13px;
+    margin-right:auto;
 
-    background:#111;
-    color:#fff;
+    padding:12px 15px;
 
-    border:1px solid #282828;
-    border-radius:10px;
+    color:white;
+    background:#080808;
+
+    border:1px solid #242424;
+    border-radius:9px;
 
     outline:none;
 
-    font-size:11px;
+    font-size:10px;
+
+    transition:.3s;
 }
 
 .search:focus{
     border-color:var(--yellow);
+
+    box-shadow:
+        0 0 20px rgba(255,208,0,.07);
 }
 
 /* =========================
@@ -520,51 +815,82 @@ nav a:hover{
 
 .products{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:18px;
+
+    grid-template-columns:
+        repeat(5,minmax(0,1fr));
+
+    gap:17px;
 }
 
 .card{
-    background:linear-gradient(145deg,#151515,#090909);
-
-    border:1px solid #272727;
-    border-radius:18px;
+    position:relative;
 
     overflow:hidden;
 
-    opacity:0;
-    transform:translateY(25px);
+    background:
+        linear-gradient(
+            145deg,
+            #101010,
+            #070707
+        );
 
-    animation:cardIn .65s ease forwards;
+    border:1px solid #202020;
 
-    transition:.35s;
+    border-radius:17px;
+
+    transition:.4s;
+
+    animation:cardShow .7s ease both;
 }
 
-.card:nth-child(1){animation-delay:.05s}
-.card:nth-child(2){animation-delay:.10s}
-.card:nth-child(3){animation-delay:.15s}
-.card:nth-child(4){animation-delay:.20s}
-.card:nth-child(5){animation-delay:.25s}
+.card:hover{
+    transform:translateY(-9px);
 
-@keyframes cardIn{
+    border-color:
+        rgba(255,208,0,.5);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.7),
+        0 0 30px rgba(255,208,0,.06);
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:50%;
+    height:1px;
+
+    background:var(--yellow);
+
+    box-shadow:
+        0 0 15px var(--yellow);
+
+    transition:.7s;
+}
+
+.card:hover::before{
+    left:150%;
+}
+
+@keyframes cardShow{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-.card:hover{
-    transform:translateY(-8px);
-
-    border-color:rgba(255,208,0,.5);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.65),
-        0 0 20px rgba(255,208,0,.05);
-}
-
 .weapon-image{
-    height:195px;
+    height:190px;
 
     position:relative;
 
@@ -577,68 +903,97 @@ nav a:hover{
     background:
         radial-gradient(
             circle,
-            rgba(255,208,0,.1),
-            transparent 57%
-        ),
-        #080808;
+            rgba(255,208,0,.09),
+            transparent 60%
+        );
+}
+
+.weapon-image::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 35%,
+            rgba(255,255,255,.035),
+            transparent 65%
+        );
+
+    transform:translateX(-100%);
+
+    transition:.8s;
+}
+
+.card:hover .weapon-image::after{
+    transform:translateX(100%);
 }
 
 .weapon-image img{
-    width:96%;
-    height:96%;
+    width:95%;
+    height:95%;
 
     object-fit:contain;
 
     filter:
         drop-shadow(
-            0 20px 20px rgba(0,0,0,.95)
+            0 22px 17px rgba(0,0,0,.95)
         );
 
-    transition:.45s;
+    transition:.5s;
 }
 
 .card:hover .weapon-image img{
-    transform:scale(1.08) translateY(-4px);
+    transform:
+        scale(1.09)
+        rotate(-1deg);
 }
 
 .tag{
     position:absolute;
 
-    top:12px;
-    right:12px;
+    top:11px;
+    right:11px;
 
     z-index:5;
 
     padding:5px 9px;
 
+    color:#000;
+    background:var(--yellow);
+
     border-radius:6px;
 
-    background:var(--yellow);
-    color:#000;
-
-    font-size:9px;
+    font-size:8px;
     font-weight:900;
+
+    box-shadow:
+        0 0 12px rgba(255,208,0,.25);
 }
 
 .card-body{
-    padding:17px;
+    padding:16px;
 }
 
 .card-body h3{
-    font-size:13px;
+    overflow:hidden;
 
     white-space:nowrap;
-    overflow:hidden;
     text-overflow:ellipsis;
+
+    font-size:12px;
 
     margin-bottom:5px;
 }
 
 .rarity{
-    color:#666;
+    color:#555;
+
     font-size:9px;
 
-    margin-bottom:17px;
+    margin-bottom:16px;
 }
 
 .card-bottom{
@@ -652,28 +1007,35 @@ nav a:hover{
 .price{
     color:var(--yellow);
 
-    font-size:11px;
+    font-size:10px;
     font-weight:900;
+
+    text-shadow:
+        0 0 10px rgba(255,208,0,.2);
 }
 
 .buy{
-    padding:9px 13px;
+    padding:8px 12px;
 
     border:0;
     border-radius:7px;
 
-    background:var(--yellow);
     color:#000;
+    background:var(--yellow);
 
-    font-size:10px;
+    font-size:9px;
     font-weight:900;
 
     transition:.25s;
 }
 
 .buy:hover{
-    background:#fff;
+    background:white;
+
     transform:scale(1.06);
+
+    box-shadow:
+        0 0 15px rgba(255,208,0,.15);
 }
 
 /* =========================
@@ -684,53 +1046,92 @@ nav a:hover{
     padding:0 6% 100px;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
 
-    gap:20px;
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:17px;
 }
 
 .feature{
+    position:relative;
+
     padding:25px;
 
-    background:#101010;
+    background:#080808;
 
-    border:1px solid #222;
-    border-radius:16px;
+    border:1px solid #1d1d1d;
 
-    transition:.3s;
+    border-radius:15px;
+
+    transition:.35s;
+
+    overflow:hidden;
 }
 
 .feature:hover{
+    border-color:
+        rgba(255,208,0,.35);
+
     transform:translateY(-6px);
-    border-color:rgba(255,208,0,.4);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+}
+
+.feature::after{
+    content:"";
+
+    position:absolute;
+
+    top:-60px;
+    right:-60px;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,208,0,.12),
+            transparent 70%
+        );
 }
 
 .feature-icon{
-    width:45px;
-    height:45px;
+    width:43px;
+    height:43px;
 
     display:grid;
     place-items:center;
 
-    margin-bottom:15px;
+    margin-bottom:14px;
 
-    border-radius:12px;
+    border-radius:11px;
 
-    background:rgba(255,208,0,.1);
     color:var(--yellow);
 
-    font-size:19px;
+    border:1px solid rgba(255,208,0,.2);
+
+    background:rgba(255,208,0,.04);
+
+    box-shadow:
+        0 0 18px rgba(255,208,0,.04);
 }
 
 .feature h3{
-    font-size:14px;
-    margin-bottom:8px;
+    font-size:13px;
+
+    margin-bottom:7px;
 }
 
 .feature p{
-    color:#666;
+    color:#555;
 
-    font-size:10px;
+    font-size:9px;
+
     line-height:2;
 }
 
@@ -750,9 +1151,9 @@ nav a:hover{
 
     padding:20px;
 
-    background:rgba(0,0,0,.86);
+    background:rgba(0,0,0,.9);
 
-    backdrop-filter:blur(9px);
+    backdrop-filter:blur(12px);
 
     opacity:0;
     visibility:hidden;
@@ -767,22 +1168,19 @@ nav a:hover{
 
 .modal-box{
     width:100%;
-    max-width:520px;
+    max-width:510px;
 
-    padding:25px;
+    padding:24px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #090909
-        );
+    background:#090909;
 
     border:1px solid rgba(255,208,0,.35);
-    border-radius:20px;
+
+    border-radius:18px;
 
     box-shadow:
-        0 30px 100px rgba(0,0,0,.85);
+        0 30px 100px rgba(0,0,0,.95),
+        0 0 35px rgba(255,208,0,.05);
 
     transform:
         translateY(25px)
@@ -802,61 +1200,68 @@ nav a:hover{
     align-items:center;
     justify-content:space-between;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
 .modal-head h2{
     color:var(--yellow);
-    font-size:20px;
+
+    font-size:19px;
+
+    text-shadow:
+        0 0 13px rgba(255,208,0,.3);
 }
 
 .close{
-    width:35px;
-    height:35px;
+    width:34px;
+    height:34px;
 
     border:0;
     border-radius:50%;
 
-    background:#1c1c1c;
-    color:#fff;
+    background:#151515;
+    color:#aaa;
 
     font-size:18px;
+
+    transition:.25s;
 }
 
 .close:hover{
-    background:var(--yellow);
     color:#000;
+    background:var(--yellow);
 }
 
 .selected-product{
     display:flex;
     align-items:center;
 
-    gap:15px;
+    gap:13px;
 
-    padding:12px;
-    margin-bottom:18px;
+    padding:11px;
 
-    background:#181818;
+    background:#0f0f0f;
 
-    border-radius:12px;
+    border:1px solid #1c1c1c;
+
+    border-radius:11px;
 }
 
 .selected-product img{
-    width:130px;
-    height:75px;
+    width:125px;
+    height:70px;
 
     object-fit:contain;
 }
 
 .selected-product strong{
-    font-size:13px;
+    font-size:12px;
 }
 
 .option-title{
-    color:#777;
+    color:#666;
 
-    font-size:10px;
+    font-size:9px;
 
     margin:15px 0 8px;
 }
@@ -864,41 +1269,49 @@ nav a:hover{
 .options{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
-    gap:8px;
+    gap:7px;
 }
 
 .option{
     padding:10px 5px;
 
-    background:#181818;
-    color:#aaa;
+    color:#777;
+    background:#111;
 
-    border:1px solid #292929;
-    border-radius:8px;
+    border:1px solid #252525;
 
-    font-size:9px;
+    border-radius:7px;
+
+    font-size:8px;
 
     transition:.25s;
 }
 
 .option:hover{
     color:var(--yellow);
-    border-color:var(--yellow);
+
+    border-color:
+        rgba(255,208,0,.5);
 }
 
 .option.active{
-    background:var(--yellow);
     color:#000;
+
+    background:var(--yellow);
 
     border-color:var(--yellow);
 
     font-weight:900;
+
+    box-shadow:
+        0 0 12px rgba(255,208,0,.1);
 }
 
 .order-form{
-    margin-top:20px;
+    margin-top:18px;
 }
 
 .form-error{
@@ -906,9 +1319,9 @@ nav a:hover{
 
     color:var(--red);
 
-    font-size:10px;
+    font-size:9px;
 
-    margin-bottom:9px;
+    margin-bottom:8px;
 }
 
 .form-error.show{
@@ -918,23 +1331,27 @@ nav a:hover{
 .order-btn{
     width:100%;
 
-    padding:14px;
+    padding:13px;
 
     border:0;
-    border-radius:10px;
+    border-radius:9px;
 
-    background:var(--yellow);
     color:#000;
+    background:var(--yellow);
 
-    font-size:12px;
+    font-size:10px;
     font-weight:900;
 
     transition:.3s;
 }
 
 .order-btn:hover{
-    background:#fff;
+    background:white;
+
     transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(255,208,0,.12);
 }
 
 /* =========================
@@ -942,17 +1359,17 @@ nav a:hover{
 ========================= */
 
 footer{
-    padding:30px 6%;
+    padding:28px 6%;
 
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 
-    border-top:1px solid #1c1c1c;
+    border-top:1px solid #171717;
 
-    color:#555;
+    color:#444;
 
-    font-size:10px;
+    font-size:9px;
 }
 
 footer strong{
@@ -966,25 +1383,28 @@ footer strong{
 .toast{
     position:fixed;
 
-    left:50%;
-    bottom:25px;
-
     z-index:9999;
 
-    padding:12px 20px;
+    left:50%;
+    bottom:22px;
 
-    background:var(--yellow);
+    padding:11px 18px;
+
     color:#000;
+    background:var(--yellow);
 
-    border-radius:9px;
+    border-radius:8px;
 
-    font-size:10px;
+    font-size:9px;
     font-weight:900;
 
     transform:
         translate(-50%,100px);
 
     transition:.4s;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.5);
 }
 
 .toast.show{
@@ -996,18 +1416,24 @@ footer strong{
    RESPONSIVE
 ========================= */
 
-@media(max-width:1250px){
+@media(max-width:1200px){
 
     .products{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+            repeat(3,1fr);
     }
 
 }
 
-@media(max-width:900px){
+@media(max-width:850px){
+
+    nav{
+        display:none;
+    }
 
     .products{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .features{
@@ -1016,24 +1442,41 @@ footer strong{
 
 }
 
-@media(max-width:700px){
+@media(max-width:650px){
 
     header{
         padding:0 20px;
-    }
-
-    nav{
-        display:none;
     }
 
     .profile-panel{
         position:fixed;
 
         top:88px;
+
         left:15px;
         right:15px;
 
         width:auto;
+    }
+
+    .hero{
+        min-height:calc(100vh - 76px);
+
+        padding-top:50px;
+    }
+
+    .neon-logo{
+        gap:9px;
+
+        padding:16px 20px;
+
+        border-radius:14px;
+
+        letter-spacing:2px;
+    }
+
+    .hero-subtitle{
+        font-size:11px;
     }
 
     .shop{
@@ -1041,13 +1484,13 @@ footer strong{
         padding-right:20px;
     }
 
-    .shop-head{
-        flex-direction:column;
-        align-items:stretch;
+    .section-line{
+        flex-wrap:wrap;
     }
 
     .search{
         width:100%;
+        margin:0;
     }
 
     .products{
@@ -1060,6 +1503,9 @@ footer strong{
     }
 
     footer{
+        padding-left:20px;
+        padding-right:20px;
+
         flex-direction:column;
 
         gap:10px;
@@ -1069,24 +1515,11 @@ footer strong{
 
 }
 
-@media(max-width:600px){
-
-    .neon-logo{
-        gap:10px;
-
-        padding:17px 22px;
-
-        border-radius:17px;
-
-        letter-spacing:2px;
-    }
-
-}
-
 @media(max-width:420px){
 
     .options{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
 }
@@ -1095,10 +1528,7 @@ footer strong{
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
+<!-- HEADER -->
 
 <header>
 
@@ -1109,7 +1539,7 @@ footer strong{
 <nav>
     <a href="#home">خانه</a>
     <a href="#shop">اسکین‌ها</a>
-    <a href="#features">مزایا</a>
+    <a href="#features">امکانات</a>
 </nav>
 
 <div class="profile" id="profile">
@@ -1117,7 +1547,6 @@ footer strong{
 <button
     class="profile-button"
     onclick="toggleProfile()"
-    aria-label="پروفایل"
 >
     👤
 </button>
@@ -1125,15 +1554,8 @@ footer strong{
 <div class="profile-panel">
 
 <div class="profile-head">
-
-<h3>
-    پروفایل کاربر
-</h3>
-
-<p>
-    فقط آیدی تلگرام خودت را وارد کن.
-</p>
-
+    <h3>پروفایل کاربر</h3>
+    <p>آیدی تلگرام خودت را وارد کن.</p>
 </div>
 
 <input
@@ -1157,29 +1579,26 @@ footer strong{
 </button>
 
 <div
-    class="saved-profile"
     id="savedText"
+    class="saved-profile"
 >
     آیدی تلگرام ذخیره نشده است.
 </div>
 
 </div>
-
 </div>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
 <div class="hero-content">
 
 <div class="badge">
-    CS2 SKINS MARKET
+    ZEUS SHOP • CS2 SKINS
 </div>
 
 <div class="neon-logo">
@@ -1187,10 +1606,11 @@ footer strong{
     <b>SHOP</b>
 </div>
 
-<p>
-    فروشگاه اسکین‌های Counter-Strike 2
+<p class="hero-subtitle">
+    فروشگاه اختصاصی اسکین‌های
+    <strong>Counter-Strike 2</strong>
     <br>
-    اسکین موردنظرت رو انتخاب کن و سفارشت رو در تلگرام ارسال کن.
+    انتخاب کن، مشخصات اسکین رو بزن و سفارشت رو مستقیم در تلگرام ارسال کن.
 </p>
 
 <div class="hero-buttons">
@@ -1208,32 +1628,35 @@ footer strong{
     rel="noopener"
     class="btn btn-dark"
 >
-    تلگرام مدیریت
+    ارتباط با مدیریت
 </a>
 
 </div>
 
 </div>
 
+<div class="scroll-down">
+    <span></span>
+    SCROLL
+</div>
+
 </section>
 
 
-<!-- =========================
-     SHOP
-========================= -->
+<!-- SHOP -->
 
 <section class="shop" id="shop">
 
-<div class="shop-head">
+<div class="section-line">
 
-<div class="shop-title">
+<div class="section-title">
 
 <h2>
-    اسکین‌های <span>فروشگاه</span>
+    <span>SKINS</span> MARKET
 </h2>
 
 <p>
-    ۵ اسکین ویژه ZEUS SHOP
+    اسکین‌های موجود در ZEUS SHOP
 </p>
 
 </div>
@@ -1261,9 +1684,7 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/MP5-SD%20%7C%20Liquidation%20(Minimal%20Wear).webp"
@@ -1276,9 +1697,7 @@ footer strong{
 
 <div class="card-body">
 
-<h3>
-    MP5-SD | Liquidation
-</h3>
+<h3>MP5-SD | Liquidation</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1298,9 +1717,7 @@ footer strong{
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1313,9 +1730,7 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/AWP%20%7C%20Capillary%20(Minimal%20Wear).webp"
@@ -1328,9 +1743,7 @@ footer strong{
 
 <div class="card-body">
 
-<h3>
-    AWP | Capillary
-</h3>
+<h3>AWP | Capillary</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1350,9 +1763,7 @@ footer strong{
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1365,9 +1776,7 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/Glock-18%20%7C%20Clear%20Polymer%20(Minimal%20Wear).webp"
@@ -1380,9 +1789,7 @@ footer strong{
 
 <div class="card-body">
 
-<h3>
-    GLOCK-18 | Clear Polymer
-</h3>
+<h3>GLOCK-18 | Clear Polymer</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1402,9 +1809,7 @@ footer strong{
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1417,9 +1822,7 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/USP-S%20%7C%20Flashback%20(Minimal%20Wear).webp"
@@ -1432,9 +1835,7 @@ footer strong{
 
 <div class="card-body">
 
-<h3>
-    USP-S | Flashback
-</h3>
+<h3>USP-S | Flashback</h3>
 
 <div class="rarity">
     Restricted
@@ -1454,9 +1855,7 @@ footer strong{
 </button>
 
 </div>
-
 </div>
-
 </div>
 
 
@@ -1469,9 +1868,7 @@ footer strong{
 
 <div class="weapon-image">
 
-<span class="tag">
-    ⚡
-</span>
+<span class="tag">⚡</span>
 
 <img
     src="https://cdn2.csgo.com/item/image/width=458/AK-47%20%7C%20Elite%20Build%20(Minimal%20Wear).webp"
@@ -1484,9 +1881,7 @@ footer strong{
 
 <div class="card-body">
 
-<h3>
-    AK-47 | Elite Build
-</h3>
+<h3>AK-47 | Elite Build</h3>
 
 <div class="rarity">
     Mil-Spec Grade
@@ -1506,19 +1901,14 @@ footer strong{
 </button>
 
 </div>
-
+</div>
 </div>
 
 </div>
-
-</div>
-
 </section>
 
 
-<!-- =========================
-     FEATURES
-========================= -->
+<!-- FEATURES -->
 
 <section class="features" id="features">
 
@@ -1533,7 +1923,7 @@ footer strong{
 </h3>
 
 <p>
-    اسکین موردنظرت را انتخاب کن و سفارش را در تلگرام بفرست.
+    اسکین را انتخاب کن و مشخصات موردنظرت را مشخص کن.
 </p>
 
 </div>
@@ -1550,7 +1940,7 @@ footer strong{
 </h3>
 
 <p>
-    سفارش مستقیماً برای مدیریت ZEUS آماده می‌شود.
+    سفارش آماده‌شده مستقیماً از طریق تلگرام برای مدیریت ارسال می‌شود.
 </p>
 
 </div>
@@ -1563,11 +1953,11 @@ footer strong{
 </div>
 
 <h3>
-    پشتیبانی تلگرام
+    پشتیبانی
 </h3>
 
 <p>
-    ارتباط مستقیم با مدیریت از طریق تلگرام.
+    برای پیگیری سفارش می‌توانی مستقیماً با مدیریت ZEUS SHOP در ارتباط باشی.
 </p>
 
 </div>
@@ -1575,9 +1965,7 @@ footer strong{
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1593,9 +1981,7 @@ footer strong{
 </footer>
 
 
-<!-- =========================
-     ORDER MODAL
-========================= -->
+<!-- ORDER MODAL -->
 
 <div
     class="modal"
@@ -1636,12 +2022,12 @@ footer strong{
 
 <div
     style="
-    color:#777;
-    font-size:10px;
-    margin-top:5px;
+        color:#555;
+        font-size:9px;
+        margin-top:5px;
     "
 >
-    مشخصات سفارش را انتخاب کن.
+    مشخصات اسکین را انتخاب کن.
 </div>
 
 </div>
@@ -1702,7 +2088,7 @@ footer strong{
 
 
 <div class="option-title">
-    نوع
+    نوع اسکین
 </div>
 
 <div
@@ -1754,9 +2140,10 @@ footer strong{
 </div>
 
 </div>
-
 </div>
 
+
+<!-- TOAST -->
 
 <div
     class="toast"
@@ -1768,19 +2155,13 @@ footer strong{
 
 <script>
 
-/* =========================
-   VARIABLES
-========================= */
-
 let selectedProduct = "";
 let selectedWear = "Factory New";
 let selectedType = "Normal";
 let selectedImage = "";
 
 
-/* =========================
-   PROFILE
-========================= */
+/* PROFILE */
 
 function toggleProfile(){
 
@@ -1793,12 +2174,12 @@ function toggleProfile(){
 
 document.addEventListener(
     "click",
-    function(event){
+    function(e){
 
         const profile =
             document.getElementById("profile");
 
-        if(!profile.contains(event.target)){
+        if(!profile.contains(e.target)){
 
             profile.classList.remove("open");
 
@@ -1808,9 +2189,25 @@ document.addEventListener(
 );
 
 
-/* =========================
-   TELEGRAM VALIDATION
-========================= */
+/* TELEGRAM */
+
+function validTelegram(value){
+
+    let username =
+        value.trim();
+
+    if(username.startsWith("@")){
+
+        username =
+            username.substring(1);
+
+    }
+
+    return /^[A-Za-z][A-Za-z0-9_]{4,31}$/
+        .test(username);
+
+}
+
 
 function normalizeTelegram(value){
 
@@ -1829,28 +2226,7 @@ function normalizeTelegram(value){
 }
 
 
-function validTelegram(value){
-
-    let username =
-        value.trim();
-
-    if(username.startsWith("@")){
-
-        username =
-            username.substring(1);
-
-    }
-
-    return /^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(
-        username
-    );
-
-}
-
-
-/* =========================
-   SAVE PROFILE
-========================= */
+/* SAVE PROFILE */
 
 function saveProfile(){
 
@@ -1864,7 +2240,7 @@ function saveProfile(){
             "telegramError"
         );
 
-    const savedText =
+    const saved =
         document.getElementById(
             "savedText"
         );
@@ -1873,7 +2249,6 @@ function saveProfile(){
         input.value.trim();
 
     input.classList.remove("error");
-
     error.classList.remove("show");
 
     if(!validTelegram(value)){
@@ -1904,8 +2279,8 @@ function saveProfile(){
     input.value =
         telegram;
 
-    savedText.textContent =
-        "✓ آیدی ذخیره شده: " +
+    saved.textContent =
+        "✓ ذخیره شد: " +
         telegram;
 
     showToast(
@@ -1915,9 +2290,7 @@ function saveProfile(){
 }
 
 
-/* =========================
-   LOAD PROFILE
-========================= */
+/* LOAD PROFILE */
 
 function loadProfile(){
 
@@ -1940,7 +2313,7 @@ function loadProfile(){
                 "savedText"
             )
             .textContent =
-            "✓ آیدی ذخیره شده: " +
+            "✓ ذخیره شد: " +
             saved;
 
     }
@@ -1950,9 +2323,7 @@ function loadProfile(){
 loadProfile();
 
 
-/* =========================
-   OPEN ORDER
-========================= */
+/* ORDER */
 
 function openOrder(button){
 
@@ -1965,14 +2336,14 @@ function openOrder(button){
             .textContent
             .trim();
 
-    const image =
+    const img =
         card.querySelector(
             ".weapon-image img"
         );
 
     selectedImage =
-        image.currentSrc ||
-        image.src;
+        img.currentSrc ||
+        img.src;
 
     document
         .getElementById(
@@ -1999,13 +2370,11 @@ function openOrder(button){
             "#wearOptions .option"
         )
         .forEach(
-            function(item,index){
-
-                item.classList.toggle(
+            (el,i)=>{
+                el.classList.toggle(
                     "active",
-                    index === 0
+                    i === 0
                 );
-
             }
         );
 
@@ -2014,21 +2383,13 @@ function openOrder(button){
             "#typeOptions .option"
         )
         .forEach(
-            function(item,index){
-
-                item.classList.toggle(
+            (el,i)=>{
+                el.classList.toggle(
                     "active",
-                    index === 0
+                    i === 0
                 );
-
             }
         );
-
-    document
-        .getElementById(
-            "orderError"
-        )
-        .classList.remove("show");
 
     document
         .getElementById(
@@ -2038,10 +2399,6 @@ function openOrder(button){
 
 }
 
-
-/* =========================
-   CLOSE ORDER
-========================= */
 
 function closeOrder(){
 
@@ -2054,10 +2411,10 @@ function closeOrder(){
 }
 
 
-function outsideClose(event){
+function outsideClose(e){
 
     if(
-        event.target ===
+        e.target ===
         document.getElementById(
             "orderModal"
         )
@@ -2070,9 +2427,7 @@ function outsideClose(event){
 }
 
 
-/* =========================
-   SELECT WEAR
-========================= */
+/* OPTIONS */
 
 function selectWear(button){
 
@@ -2081,12 +2436,10 @@ function selectWear(button){
             "#wearOptions .option"
         )
         .forEach(
-            function(item){
-
-                item.classList.remove(
+            el=>{
+                el.classList.remove(
                     "active"
                 );
-
             }
         );
 
@@ -2098,10 +2451,6 @@ function selectWear(button){
 }
 
 
-/* =========================
-   SELECT TYPE
-========================= */
-
 function selectType(button){
 
     document
@@ -2109,12 +2458,10 @@ function selectType(button){
             "#typeOptions .option"
         )
         .forEach(
-            function(item){
-
-                item.classList.remove(
+            el=>{
+                el.classList.remove(
                     "active"
                 );
-
             }
         );
 
@@ -2126,13 +2473,11 @@ function selectType(button){
 }
 
 
-/* =========================
-   SEND ORDER
-========================= */
+/* SEND TO TELEGRAM */
 
 function sendOrder(){
 
-    const savedTelegram =
+    const telegram =
         localStorage.getItem(
             "zeusTelegram"
         );
@@ -2144,11 +2489,10 @@ function sendOrder(){
 
     error.classList.remove("show");
 
-
-    if(!savedTelegram){
+    if(!telegram){
 
         error.textContent =
-            "❌ اول از بخش پروفایل آیدی تلگرام خودت را وارد و ذخیره کن.";
+            "❌ اول آیدی تلگرام خودت را در پروفایل ذخیره کن.";
 
         error.classList.add("show");
 
@@ -2156,21 +2500,19 @@ function sendOrder(){
 
     }
 
-
-    if(!validTelegram(savedTelegram)){
+    if(!validTelegram(telegram)){
 
         error.textContent =
-            "❌ آیدی تلگرام ذخیره‌شده صحیح نیست. دوباره واردش کن.";
+            "❌ آیدی تلگرام ذخیره‌شده صحیح نیست.";
 
         error.classList.add("show");
 
         return;
 
     }
-
 
     const message =
-`🛒 سفارش جدید ZEUS SHOP
+`🛒 سفارش جدید | ZEUS SHOP
 
 ━━━━━━━━━━━━━━
 
@@ -2185,52 +2527,42 @@ ${selectedType}
 
 ━━━━━━━━━━━━━━
 
-💬 Telegram مشتری:
-${savedTelegram}
+👤 تلگرام مشتری:
+${telegram}
 
 ━━━━━━━━━━━━━━
 
 سلام، برای خرید این اسکین پیام دادم.`;
 
 
-    const encoded =
+    const url =
+        "https://t.me/Zeus_admin0?text=" +
         encodeURIComponent(message);
 
-
-    const telegramURL =
-        "https://t.me/Zeus_admin0?text=" +
-        encoded;
-
-
-    const opened =
+    const win =
         window.open(
-            telegramURL,
+            url,
             "_blank",
             "noopener"
         );
 
-
-    if(!opened){
+    if(!win){
 
         window.location.href =
-            telegramURL;
+            url;
 
     }
 
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 function searchProducts(){
 
-    const value =
+    const query =
         document
-            .getElementById(
-                "search"
-            )
+            .getElementById("search")
             .value
             .toLowerCase()
             .trim();
@@ -2238,14 +2570,14 @@ function searchProducts(){
     document
         .querySelectorAll(".card")
         .forEach(
-            function(card){
+            card=>{
 
                 const name =
                     card.dataset.name
                         .toLowerCase();
 
                 card.style.display =
-                    name.includes(value)
+                    name.includes(query)
                     ? ""
                     : "none";
 
@@ -2255,16 +2587,12 @@ function searchProducts(){
 }
 
 
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 function showToast(text){
 
     const toast =
-        document.getElementById(
-            "toast"
-        );
+        document.getElementById("toast");
 
     toast.textContent =
         text;
@@ -2277,12 +2605,10 @@ function showToast(text){
 
     window.zeusToast =
         setTimeout(
-            function(){
-
+            ()=>{
                 toast.classList.remove(
                     "show"
                 );
-
             },
             2500
         );
@@ -2290,15 +2616,13 @@ function showToast(text){
 }
 
 
-/* =========================
-   ESC
-========================= */
+/* ESC */
 
 document.addEventListener(
     "keydown",
-    function(event){
+    e=>{
 
-        if(event.key === "Escape"){
+        if(e.key === "Escape"){
 
             closeOrder();
 
